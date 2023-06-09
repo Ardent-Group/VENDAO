@@ -32,11 +32,28 @@ contract VenAccessTicket is ERC721, Ownable {
         emit newCaller(oldCaller, caller);
     }
 
-    function _daoPassTicket(address _investor) external returns(uint256 _newTokenId) {
+    /**
+     * @notice  . This function can only be called by Vendao
+     * @dev     . Function responsible for generating dao ticket
+     * @param   _investor  . address of investor
+     */
+    function daoPassTicket(address _investor) external returns(uint256 _newTokenId) {
         require(msg.sender == caller, "Accessibility Denied");
         _newTokenId = _tokenIds.current();
         _mint(_investor, _newTokenId);
 
         _tokenIds.increment();
+    }
+
+    function burnPassTicket(uint256 _tokenId) external {
+        require(msg.sender == caller, "Accessibility Denied");
+        _burn(_tokenId);
+    }
+
+    /**
+    * @dev  . Function that holds access ticket URI
+    */
+    function _baseURI() internal pure override returns(string memory) {
+        return "";
     }
 }

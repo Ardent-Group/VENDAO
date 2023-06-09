@@ -1,16 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/AccessControlDefaultAdminRules.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "./IVenAccessTicket.sol";
 
-contract Vendao is ERC721, AccessControlDefaultAdminRules, ReentrancyGuard{
+contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
     bytes32 public constant NOMINATED_ADMINS = keccak256("NOMINATED_ADMINS");
     bytes32 public constant INVESTOR = keccak256("INVESTOR");
-    using Counters for Counters.Counter;
 
     /**===================================
      *            Custom Error
@@ -29,7 +27,8 @@ contract Vendao is ERC721, AccessControlDefaultAdminRules, ReentrancyGuard{
     /*====================================
     **           STATE VARIBLES
     =====================================*/
-    Counters.Counter private _tokenIds;
+
+    IVenAccessTicket public accessTicket;
     uint128 acceptanceFee;
     Contestant[] public contestant;
     uint40 voteTime;
@@ -103,8 +102,9 @@ contract Vendao is ERC721, AccessControlDefaultAdminRules, ReentrancyGuard{
     }
 
 
-    constructor() ERC721("Vendao", "Ven") AccessControlDefaultAdminRules(5 days, msg.sender){
+    constructor(IVenAccessTicket _accessCA) AccessControlDefaultAdminRules(5 days, msg.sender){
         _setRoleAdmin(NOMINATED_ADMINS, DEFAULT_ADMIN_ROLE);
+        accessTicket = _accessCA;
     }
 
     /**
@@ -125,8 +125,8 @@ contract Vendao is ERC721, AccessControlDefaultAdminRules, ReentrancyGuard{
         if(_amount < acceptanceFee) revert lowerThanFee("VENDAO: fee is less than the required fee");
         DAO_FTM_BALANCE += _amount;
         _grantRole(INVESTOR, sender);
-        _newTokenId = _daoPassTicket(sender);
-        investorsId[msg.sender] = _newTokenId;
+        _newTokenId = accessTicket.daoPassTicket(sender);
+        investorsId[sender] = _newTokenId;
         voteLimit[sender] = 0;
     }
 
@@ -138,7 +138,7 @@ contract Vendao is ERC721, AccessControlDefaultAdminRules, ReentrancyGuard{
     function leaveDAO() external payable onlyRole(INVESTOR) {
         address sender = msg.sender;
         _revokeRole(INVESTOR, sender);
-        _burn(investorsId[sender]);
+        accessTicket.burnPassTicket(investorsId[sender]);
         
         (bool success, ) = payable(sender).call{value: (acceptanceFee / 2)}("");
 
@@ -340,24 +340,6 @@ contract Vendao is ERC721, AccessControlDefaultAdminRules, ReentrancyGuard{
         }
     }
 
-    /**
-    * @dev  . Function that holds access ticket URI
-    */
-    function _baseURI() internal pure override returns(string memory) {
-        return "";
-    }
-
-    /**
-     * @dev     . Function responsible for generating dao ticket
-     * @param   _investor  . address of investor
-     */
-    function _daoPassTicket(address _investor) internal returns(uint256 _newTokenId){
-        _newTokenId = _tokenIds.current();
-        _mint(_investor, _newTokenId);
-
-        _tokenIds.increment();
-    }
-
     function _daoFundingCalc(uint256 _fundingRequest) internal view returns(uint256) {
         uint256 investingAmount = (10 * _fundingRequest) / 100;
         if(DAO_FTM_BALANCE >= investingAmount){
@@ -377,10 +359,6 @@ contract Vendao is ERC721, AccessControlDefaultAdminRules, ReentrancyGuard{
         _share = (_equityOffering * _amountInvested) / _fundingRaised;
         _amountUsed = (_fundingRequest * _amountInvested) / _fundingRaised;
         _amountLeft = _amountInvested - _amountUsed;
-    }
-
-    function supportsInterface(bytes4 interfaceId) public view override(ERC721, AccessControlDefaultAdminRules) returns (bool){
-        return super.supportsInterface(interfaceId);
     }
 
     receive() external payable {}
