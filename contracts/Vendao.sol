@@ -1,14 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.20;
 
-import "@openzeppelin/contracts/access/AccessControlDefaultAdminRules.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "./IVenAccessTicket.sol";
+import "./IVenAccessControl.sol";
 
-contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
+contract Vendao is ReentrancyGuard{
     bytes32 public constant NOMINATED_ADMINS = keccak256("NOMINATED_ADMINS");
     bytes32 public constant INVESTOR = keccak256("INVESTOR");
+    bytes32 public constant ADMIN = keccak256("ADMIN");
 
     /**===================================
      *            Custom Error
@@ -27,8 +28,10 @@ contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
     /*====================================
     **           STATE VARIBLES
     =====================================*/
+    address owner;
 
-    IVenAccessTicket public accessTicket;
+    IVenAccessTicket public VenAccessTicket;
+    IVenAccessControl public VenAccessControl;
     uint128 acceptanceFee;
     Contestant[] public contestant;
     uint40 voteTime;
@@ -102,9 +105,16 @@ contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
     }
 
 
-    constructor(IVenAccessTicket _accessCA) AccessControlDefaultAdminRules(5 days, msg.sender){
-        _setRoleAdmin(NOMINATED_ADMINS, DEFAULT_ADMIN_ROLE);
-        accessTicket = _accessCA;
+    constructor() {
+        owner = msg.sender;
+    }
+
+    function init(IVenAccessTicket _accessTicket, IVenAccessControl _accessControl) external {
+        require(msg.sender == owner, "Not an owner");
+        VenAccessTicket = _accessTicket;
+        VenAccessControl = _accessControl;
+
+        delete owner;
     }
 
     /**
@@ -112,7 +122,7 @@ contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
      * @param   _acceptance  . New acceptance fee to be set
      */
     function setAcceptanceFee(uint128 _acceptance) external {
-        if(msg.sender != owner()) revert notAdmin("VENDAO: Only admin can alter change");
+        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
         acceptanceFee = _acceptance;
     }
 
@@ -124,8 +134,8 @@ contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
         uint256 _amount = msg.value; // variable caching
         if(_amount < acceptanceFee) revert lowerThanFee("VENDAO: fee is less than the required fee");
         DAO_FTM_BALANCE += _amount;
-        _grantRole(INVESTOR, sender);
-        _newTokenId = accessTicket.daoPassTicket(sender);
+        VenAccessControl.grantRole(INVESTOR, sender);
+        _newTokenId = VenAccessTicket.daoPassTicket(sender);
         investorsId[sender] = _newTokenId;
         voteLimit[sender] = 0;
     }
@@ -135,10 +145,12 @@ contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
      * and only 50% of the amount used to join the DAO is refunded.
      * @dev     . Function responsible for leaving the DAO
      */
-    function leaveDAO() external payable onlyRole(INVESTOR) {
+    function leaveDAO() external payable {
         address sender = msg.sender;
+        require(VenAccessControl.hasRole(INVESTOR, sender), "VENDAO: Not an investor");
+        VenAccessControl.revokeRole(INVESTOR, sender);
         _revokeRole(INVESTOR, sender);
-        accessTicket.burnPassTicket(investorsId[sender]);
+        VenAccessTicket.burnPassTicket(investorsId[sender]);
         
         (bool success, ) = payable(sender).call{value: (acceptanceFee / 2)}("");
 
@@ -148,10 +160,8 @@ contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
     // ================ VOTING ARENA ===================
 
     function setContestant(Contestant memory _contestant, uint40 _voteTime) external {
-        if(msg.sender != owner()) revert notAdmin("VENDAO: Only admin can alter change");
-        require(contestant.length < 10, "Contestant filled");
-        contestant.push(_contestant);
-        voteTime = _voteTime;
+        // require(VenAccessControl.hasRole(ADMIN, msg.sender), "VENDAO: Not an admin");
+        VenVoting.setContestant(_contestant, _voteTime);
     }
 
     /**
@@ -159,10 +169,7 @@ contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
      * @dev     . Function responsible for reseting contestant inputs.
      */
     function resetContestant() external {
-        if(msg.sender != owner()) revert notAdmin ("VENDAO: Only admin can alter change");
-        for(uint i = 0; i < 10; i ++) {
-            contestant.pop();
-        }
+        VenVoting.resetContestant();
     }
 
     function resetVoteLimit() external onlyRole(INVESTOR) {
@@ -172,7 +179,7 @@ contract Vendao is AccessControlDefaultAdminRules, ReentrancyGuard{
     }
 
     function voteAdmin(uint8 _id) public onlyRole(INVESTOR){
-        if(voteLimit[msg.sender] < 4) revert exceedLimit("Exceed Voting limit");
+        if(voteLimit[msg.sender] > 3) revert exceedLimit("Exceed Voting limit");
         contestant[_id].voteCount += 1;
         voteLimit[msg.sender] += 1;
     }
