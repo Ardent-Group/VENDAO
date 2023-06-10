@@ -33,6 +33,7 @@ contract Vendao is ReentrancyGuard{
     IVenAccessTicket public VenAccessTicket;
     IVenAccessControl public VenAccessControl;
     ISpookySwap public spookySwap;
+    AggregatorV3Interface public FTM_PRICE_FEED;
     uint208 acceptanceFee;
     uint40 public proposalTime;
     bool paused;
@@ -178,6 +179,8 @@ contract Vendao is ReentrancyGuard{
         if(paused) revert _paused("Project proposal paused");
         require(_contractAddress.transferFrom(sender, address(this), _equityOffering), "VENDAO: Transaction unsuccessful");
         require(_contractAddress.balanceOf(address(this)) >= _equityOffering, "VENDAO: zero value was sent");
+        (,int _price,,,) = FTM_PRICE_FEED.latestRoundData();
+        uint256 _funding = _fundingRequest * 10**8 / uint256(_price);
         projectProposals.push(Project({
             urlToStorage: _urlToStore,
             proposalValidity: uint40(timestamp + 2 weeks),
@@ -185,7 +188,7 @@ contract Vendao is ReentrancyGuard{
             proposalId: index,
             approvalCount: 0,
             status: Status.pending,
-            fundingRequest: _fundingRequest,
+            fundingRequest: _funding,
             equityOffering: _equityOffering,
             tokenCA: _contractAddress
         }));
