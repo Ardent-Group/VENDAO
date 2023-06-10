@@ -16,10 +16,8 @@ contract Vendao is ReentrancyGuard{
     =====================================*/
     error notAdmin(string);
     error lowerThanFee(string);
-    error noElection(string);
-    error exceedLimit(string);
     error approved(string);
-    error timeUp(string);
+    error _paused(string);
 
     /**===================================
      *            EVENTS
@@ -32,10 +30,9 @@ contract Vendao is ReentrancyGuard{
 
     IVenAccessTicket public VenAccessTicket;
     IVenAccessControl public VenAccessControl;
-    uint128 acceptanceFee;
-    Contestant[] public contestant;
-    uint40 voteTime;
-    mapping(address => uint8) public voteLimit; // Investors vote limit;
+    uint208 acceptanceFee;
+    uint40 public proposalTime;
+    bool paused;
     mapping(address => mapping(uint48 => bool)) nomineesApproved;
     uint256 DAO_FTM_BALANCE;
     mapping(address => mapping(uint48 => uint256)) investorFund;
@@ -44,12 +41,6 @@ contract Vendao is ReentrancyGuard{
     Invest[] public proposalsToInvest; // List of proposals to invest in
     FundedProject[] public projectFunded; // List of project funded
 
-    struct Contestant {
-        string name;
-        uint128 voteCount;
-        address participant;
-        uint8 Id;
-    }
 
     struct Project {
         string urlToStorage;
@@ -121,7 +112,7 @@ contract Vendao is ReentrancyGuard{
      * @dev     . function responsible to set acceptance fee
      * @param   _acceptance  . New acceptance fee to be set
      */
-    function setAcceptanceFee(uint128 _acceptance) external {
+    function setAcceptanceFee(uint208 _acceptance) external {
         if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
         acceptanceFee = _acceptance;
     }
@@ -137,7 +128,6 @@ contract Vendao is ReentrancyGuard{
         VenAccessControl.grantRole(INVESTOR, sender);
         _newTokenId = VenAccessTicket.daoPassTicket(sender);
         investorsId[sender] = _newTokenId;
-        voteLimit[sender] = 0;
     }
 
     /**
@@ -149,61 +139,11 @@ contract Vendao is ReentrancyGuard{
         address sender = msg.sender;
         require(VenAccessControl.hasRole(INVESTOR, sender), "VENDAO: Not an investor");
         VenAccessControl.revokeRole(INVESTOR, sender);
-        _revokeRole(INVESTOR, sender);
         VenAccessTicket.burnPassTicket(investorsId[sender]);
         
         (bool success, ) = payable(sender).call{value: (acceptanceFee / 2)}("");
 
         require(success, "Transaction Unsuccessful");
-    }
-
-    // ================ VOTING ARENA ===================
-
-    function setContestant(Contestant memory _contestant, uint40 _voteTime) external {
-        // require(VenAccessControl.hasRole(ADMIN, msg.sender), "VENDAO: Not an admin");
-        VenVoting.setContestant(_contestant, _voteTime);
-    }
-
-    /**
-     * @notice  . This function can only be called by admin
-     * @dev     . Function responsible for reseting contestant inputs.
-     */
-    function resetContestant() external {
-        VenVoting.resetContestant();
-    }
-
-    function resetVoteLimit() external onlyRole(INVESTOR) {
-        if(block.timestamp > voteTime) revert noElection("VENDAO: No upcoming election");
-        require(voteLimit[msg.sender] > 0, "Eligible to vote");
-        voteLimit[msg.sender] = 0;
-    }
-
-    function voteAdmin(uint8 _id) public onlyRole(INVESTOR){
-        if(voteLimit[msg.sender] > 3) revert exceedLimit("Exceed Voting limit");
-        contestant[_id].voteCount += 1;
-        voteLimit[msg.sender] += 1;
-    }
-
-    function top5Nominees() external view returns(Contestant[] memory) {
-        Contestant[] memory _contestant = contestant;
-        Contestant[] memory nominees = new Contestant[](5);
-
-        Contestant memory max;
-        uint8 index;
-        for(uint8 i = 0; i < 5; i++){
-            max = nominees[0];
-            index = 0;
-
-            for(uint8 j = 0; j < _contestant.length; j++){
-                if(max.voteCount < _contestant[j].voteCount){
-                    max = _contestant[j];
-                    index = j;
-                }
-            }
-            nominees[i] = max;
-            delete _contestant[index];
-        }
-        return nominees;
     }
 
     // ================ Project Proposal Section ====================
@@ -214,7 +154,7 @@ contract Vendao is ReentrancyGuard{
      * @param   _urlToStore  . url to the storage location of the project proposal overview
      */
     /**
-     * @notice  . Any body can call this function to propose a project
+     * @notice  . Any body can call this function to propose a project. Project can only be proposed once in a week
      * @dev     . Function responsible for taking project proposal before, it's being moved to the dao for invedtors
      * @param   _urlToStore  . url to the storage location of the project proposal overview
      * @param   _fundingRequest  . amount requesting for funding in dollars
@@ -223,12 +163,15 @@ contract Vendao is ReentrancyGuard{
      */
     function proposeProject(string memory _urlToStore, uint256 _fundingRequest, uint256 _equityOffering, IERC20 _contractAddress) external nonReentrant {
         uint48 index = uint48(projectProposals.length);
-        address sender = msg.sender;
+        address sender = msg.sender; // variable caching
+        uint40 timestamp = uint40(block.timestamp); // variable caching
+        require(timestamp > proposalTime, "Proposal not open");
+        if(paused) revert _paused("Project proposal paused");
         require(_contractAddress.transferFrom(sender, address(this), _equityOffering), "VENDAO: Transaction unsuccessful");
         require(_contractAddress.balanceOf(address(this)) >= _equityOffering, "VENDAO: zero value was sent");
         projectProposals.push(Project({
             urlToStorage: _urlToStore,
-            proposalValidity: uint40(block.timestamp + 2 weeks),
+            proposalValidity: uint40(timestamp + 2 weeks),
             proposalCreator: sender,
             proposalId: index,
             approvalCount: 0,
@@ -237,6 +180,17 @@ contract Vendao is ReentrancyGuard{
             equityOffering: _equityOffering,
             tokenCA: _contractAddress
         }));
+
+        proposalTime = timestamp + 1 weeks;
+    }
+
+    /**
+     * @notice  . This can only be called by the admin
+     * @dev     . Function pause proposal is used to prevent excessive project proposals
+     */
+    function pauseProposal() external {
+        require(VenAccessControl.hasRole(ADMIN, msg.sender), "VENDAO: Not an admin");
+        paused = true;
     }
 
     /**
@@ -244,7 +198,8 @@ contract Vendao is ReentrancyGuard{
      * @dev     . The function examine project is used to approve/reject a project
      * @param   _proposalId  . proposal id of a project
      */
-    function examineProject(uint48 _proposalId) external onlyRole(NOMINATED_ADMINS) nonReentrant {
+    function examineProject(uint48 _proposalId) external nonReentrant {
+        if(!VenAccessControl.hasRole(NOMINATED_ADMINS, msg.sender)) revert notAdmin("Only nominated admins can alter change");
         Project memory _proposal = projectProposals[_proposalId];
         require(!nomineesApproved[msg.sender][_proposalId], "NOMINEE: Approved already");
         if(_proposal.status == Status.approve) revert approved("VENDAO: Project proposal approved");
@@ -278,7 +233,8 @@ contract Vendao is ReentrancyGuard{
      * @dev     . Function responsible for investors to invest in a project of their choice
      * @param   _proposalId  . proposal id of project requesting for funding
      */
-    function invest(uint48 _proposalId) external payable onlyRole(NOMINATED_ADMINS) nonReentrant {
+    function invest(uint48 _proposalId) external payable nonReentrant {
+        if(!VenAccessControl.hasRole(INVESTOR, msg.sender)) revert notAdmin("Only Investors");
         uint256 _amount = msg.value; // variable caching
         Invest memory _invest = proposalsToInvest[_proposalId];
         if(block.timestamp >= _invest.investPeriod) {
