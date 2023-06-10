@@ -1,0 +1,453 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "resetContestant",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "internalType": "uint128",
+              "name": "voteCount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "address",
+              "name": "participant",
+              "type": "address"
+            },
+            {
+              "internalType": "uint8",
+              "name": "Id",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct Contestant",
+          "name": "_contestant",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint40",
+          "name": "_voteTime",
+          "type": "uint40"
+        }
+      ],
+      "name": "setContestant",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "resetContestant()": "4008c7a1",
+    "setContestant((string,uint128,address,uint8),uint40)": "0ec1e19e"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"resetContestant\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint128\",\"name\":\"voteCount\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"participant\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"Id\",\"type\":\"uint8\"}],\"internalType\":\"struct Contestant\",\"name\":\"_contestant\",\"type\":\"tuple\"},{\"internalType\":\"uint40\",\"name\":\"_voteTime\",\"type\":\"uint40\"}],\"name\":\"setContestant\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/IVoting.sol\":\"IVoting\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=node_modules/@openzeppelin/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/IVoting.sol\":{\"keccak256\":\"0x81495966a74fcc6e4eb09d64f5e7037ac5efd940c67d79e7e2a1e563958566b5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c4523f55a2d54c7e1b20a2ac38ddf171af3cb7bb5aa276949ff3b8fdc49d8934\",\"dweb:/ipfs/QmSsm5Vz7DokpvWnc2iFNeGU7VV6Zp5jM5vxVcWcR4egWS\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.20+commit.a1b79de6"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "resetContestant"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct Contestant",
+              "name": "_contestant",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "string",
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "internalType": "uint128",
+                  "name": "voteCount",
+                  "type": "uint128"
+                },
+                {
+                  "internalType": "address",
+                  "name": "participant",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "Id",
+                  "type": "uint8"
+                }
+              ]
+            },
+            {
+              "internalType": "uint40",
+              "name": "_voteTime",
+              "type": "uint40"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setContestant"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=node_modules/@openzeppelin/",
+        ":eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        ":hardhat/=node_modules/hardhat/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/IVoting.sol": "IVoting"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/IVoting.sol": {
+        "keccak256": "0x81495966a74fcc6e4eb09d64f5e7037ac5efd940c67d79e7e2a1e563958566b5",
+        "urls": [
+          "bzz-raw://c4523f55a2d54c7e1b20a2ac38ddf171af3cb7bb5aa276949ff3b8fdc49d8934",
+          "dweb:/ipfs/QmSsm5Vz7DokpvWnc2iFNeGU7VV6Zp5jM5vxVcWcR4egWS"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/IVoting.sol",
+    "id": 69,
+    "exportedSymbols": {
+      "Contestant": [
+        56
+      ],
+      "IVoting": [
+        68
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:275:2",
+    "nodes": [
+      {
+        "id": 47,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:2",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".20"
+        ]
+      },
+      {
+        "id": 56,
+        "nodeType": "StructDefinition",
+        "src": "57:100:2",
+        "nodes": [],
+        "canonicalName": "Contestant",
+        "members": [
+          {
+            "constant": false,
+            "id": 49,
+            "mutability": "mutable",
+            "name": "name",
+            "nameLocation": "88:4:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 56,
+            "src": "81:11:2",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 48,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "81:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 51,
+            "mutability": "mutable",
+            "name": "voteCount",
+            "nameLocation": "106:9:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 56,
+            "src": "98:17:2",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint128",
+              "typeString": "uint128"
+            },
+            "typeName": {
+              "id": 50,
+              "name": "uint128",
+              "nodeType": "ElementaryTypeName",
+              "src": "98:7:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint128",
+                "typeString": "uint128"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 53,
+            "mutability": "mutable",
+            "name": "participant",
+            "nameLocation": "129:11:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 56,
+            "src": "121:19:2",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 52,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "121:7:2",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 55,
+            "mutability": "mutable",
+            "name": "Id",
+            "nameLocation": "152:2:2",
+            "nodeType": "VariableDeclaration",
+            "scope": 56,
+            "src": "146:8:2",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 54,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "146:5:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "name": "Contestant",
+        "nameLocation": "64:10:2",
+        "scope": 69,
+        "visibility": "public"
+      },
+      {
+        "id": 68,
+        "nodeType": "ContractDefinition",
+        "src": "159:148:2",
+        "nodes": [
+          {
+            "id": 64,
+            "nodeType": "FunctionDefinition",
+            "src": "183:81:2",
+            "nodes": [],
+            "functionSelector": "0ec1e19e",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setContestant",
+            "nameLocation": "192:13:2",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 59,
+                  "mutability": "mutable",
+                  "name": "_contestant",
+                  "nameLocation": "224:11:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64,
+                  "src": "206:29:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Contestant_$56_memory_ptr",
+                    "typeString": "struct Contestant"
+                  },
+                  "typeName": {
+                    "id": 58,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 57,
+                      "name": "Contestant",
+                      "nameLocations": [
+                        "206:10:2"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 56,
+                      "src": "206:10:2"
+                    },
+                    "referencedDeclaration": 56,
+                    "src": "206:10:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Contestant_$56_storage_ptr",
+                      "typeString": "struct Contestant"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 61,
+                  "mutability": "mutable",
+                  "name": "_voteTime",
+                  "nameLocation": "244:9:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 64,
+                  "src": "237:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint40",
+                    "typeString": "uint40"
+                  },
+                  "typeName": {
+                    "id": 60,
+                    "name": "uint40",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "237:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint40",
+                      "typeString": "uint40"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "205:49:2"
+            },
+            "returnParameters": {
+              "id": 63,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "263:0:2"
+            },
+            "scope": 68,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 67,
+            "nodeType": "FunctionDefinition",
+            "src": "269:36:2",
+            "nodes": [],
+            "functionSelector": "4008c7a1",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "resetContestant",
+            "nameLocation": "278:15:2",
+            "parameters": {
+              "id": 65,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "293:2:2"
+            },
+            "returnParameters": {
+              "id": 66,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "304:0:2"
+            },
+            "scope": 68,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IVoting",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          68
+        ],
+        "name": "IVoting",
+        "nameLocation": "169:7:2",
+        "scope": 69,
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 2
+}
