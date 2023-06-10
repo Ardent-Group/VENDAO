@@ -3,8 +3,10 @@ pragma solidity 0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./IVenAccessTicket.sol";
 import "./IVenAccessControl.sol";
+import "./ISpookySwap.sol";
 
 contract Vendao is ReentrancyGuard{
     bytes32 public constant NOMINATED_ADMINS = keccak256("NOMINATED_ADMINS");
@@ -30,6 +32,7 @@ contract Vendao is ReentrancyGuard{
 
     IVenAccessTicket public VenAccessTicket;
     IVenAccessControl public VenAccessControl;
+    ISpookySwap public spookySwap;
     uint208 acceptanceFee;
     uint40 public proposalTime;
     bool paused;
@@ -100,12 +103,18 @@ contract Vendao is ReentrancyGuard{
         owner = msg.sender;
     }
 
-    function init(IVenAccessTicket _accessTicket, IVenAccessControl _accessControl) external {
+    function init(IVenAccessTicket _accessTicket, IVenAccessControl _accessControl, ISpookySwap _spookyswap) external {
         require(msg.sender == owner, "Not an owner");
         VenAccessTicket = _accessTicket;
         VenAccessControl = _accessControl;
+        spookySwap = _spookyswap;
 
         delete owner;
+    }
+
+    function changeDex(ISpookySwap _spookyswap) external {
+        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        spookySwap = _spookyswap;
     }
 
     /**
@@ -308,29 +317,67 @@ contract Vendao is ReentrancyGuard{
     /**
      * @notice  . This function can only be called by an admin. It is used to take profit
      *  by converting equity offered to stable token, to grow VENDAO treasury.
-     * @dev     . The function is used to convert token to USDC/USDT
+     * @dev     . The function is used to convert token to stable token.
+     * @param   _token  . address of equity offered (token to change)
+     * @param   _stable  . address of stable token
+     * @param   _amount  . amount intending to swap to stable token
+     * @param   _dataFeed  . oracle price feed, if any, else null address should be used
+     * @param   _amountOutMin  . this should be set to zero if _datafeed is filled. it is used in case
+     *  There's no _datafeed
      */
-    function takeProfitInStable(IERC20 _stable, IERC20 _token) external {
+    function takeProfitInStable(
+        IERC20 _token,
+        IERC20 _stable,
+        uint256 _amount,
+        AggregatorV3Interface _dataFeed,
+        uint256 _amountOutMin
+        ) external nonReentrant {
         if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        require(_token.approve(address(spookySwap), _amount), "approve failed");
+        address[] memory path = new address[](3);
 
+        path[0] = address(_token);
+        path[1] = spookySwap.WETH();
+        path[2] = address(_stable);
+        // get data feed
+        (,int _price,,,) = _dataFeed.latestRoundData();
+        if(_price > 0){
+            spookySwap.swapExactTokensForTokens(_amount, uint256(_price), path, address(this), (block.timestamp + 20 seconds));
+        }else {
+            spookySwap.swapExactTokensForTokens(_amount, _amountOutMin, path, address(this), (block.timestamp + 20 seconds));
+        }
     }
 
+    
     /**
-     * @notice  .This function can only be called by an admin. It is used to take profit
-     *  by converting equity offered to FTM, in other to grow VENDAO treasury.
-     * @dev     .
+     * @notice  . This function can only be called by an admin. It is used to take profit
+     *  by converting equity offered to FTM, to grow VENDAO treasury.
+     * @dev     . The function is used to convert token to FTM.
+     * @param   _token  . address of equity offered (token to change)
+     * @param   _amount  . amount intending to swap for FTM
+     * @param   _dataFeed  . oracle price feed, if any, else null address should be used
+     * @param   _amountOutMin  . this should be set to zero if _datafeed is filled. it is used in case
+     *  There's no _datafeed
      */
-    function takeProfitInFTM() external {
+    function takeProfitInFTM(
+        IERC20 _token,
+        uint256 _amount,
+        AggregatorV3Interface _dataFeed,
+        uint256 _amountOutMin
+    ) external nonReentrant {
         if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        require(_token.approve(address(spookySwap), _amount), "approve failed");
+        address[] memory path = new address[](2);
 
-    }
-
-    /**
-     * @dev     . Function to convert stable tokens to ftm
-     */
-    function convertToFTM() external {
-        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
-
+        path[0] = address(_token);
+        path[1] = spookySwap.WETH();
+        // get data feed
+        (,int _price,,,) = _dataFeed.latestRoundData();
+        if(_price > 0){
+            spookySwap.swapExactTokensForETH(_amount, uint256(_price), path, address(this), (block.timestamp + 20 seconds));
+        }else {
+            spookySwap.swapExactTokensForETH(_amount, _amountOutMin, path, address(this), (block.timestamp + 20 seconds));
+        }
     }
 
     // ======================= VIEW FUNCTIONS =======================
