@@ -3,9 +3,12 @@ pragma solidity 0.8.20;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "./IVenAccessControl.sol";
 
-contract VenAccessTicket is ERC721, Ownable {
+
+contract VenAccessTicket is ERC721 {
+    bytes32 public constant CALLEE = keccak256("CALLEE");
+
     using Counters for Counters.Counter;
 
     /**===================================
@@ -17,19 +20,10 @@ contract VenAccessTicket is ERC721, Ownable {
     **           STATE VARIBLES
     =====================================*/
     Counters.Counter private _tokenIds;
-    address caller;
+    IVenAccessControl public VenAccessControl;
 
-    constructor(address _caller) ERC721("Ven DAO", "Ven") {
-        caller = _caller;
-
-        
-    }
-
-    function changeCaller(address _caller) external onlyOwner {
-        address oldCaller = caller;
-        caller = _caller;
-
-        emit newCaller(oldCaller, caller);
+    constructor(IVenAccessControl _accessControl) ERC721("Ven DAO", "VEN"){
+        VenAccessControl = _accessControl;
     }
 
     /**
@@ -38,7 +32,7 @@ contract VenAccessTicket is ERC721, Ownable {
      * @param   _investor  . address of investor
      */
     function daoPassTicket(address _investor) external returns(uint256 _newTokenId) {
-        require(msg.sender == caller, "Accessibility Denied");
+        require(VenAccessControl.hasRole(CALLEE, msg.sender), "Accessibility Denied");
         _newTokenId = _tokenIds.current();
         _mint(_investor, _newTokenId);
 
@@ -46,7 +40,7 @@ contract VenAccessTicket is ERC721, Ownable {
     }
 
     function burnPassTicket(uint256 _tokenId) external {
-        require(msg.sender == caller, "Accessibility Denied");
+        require(VenAccessControl.hasRole(CALLEE, msg.sender), "Accessibility Denied");
         _burn(_tokenId);
     }
 

@@ -11,7 +11,6 @@ import "./ISpookySwap.sol";
 contract Vendao is ReentrancyGuard{
     bytes32 public constant NOMINATED_ADMINS = keccak256("NOMINATED_ADMINS");
     bytes32 public constant INVESTOR = keccak256("INVESTOR");
-    bytes32 public constant ADMIN = keccak256("ADMIN");
 
     /**===================================
      *            Custom Error
@@ -122,7 +121,7 @@ contract Vendao is ReentrancyGuard{
 
     function setValTime(uint40 _newTime) external {
         uint40 oldTime = validityTime;
-        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         validityTime = _newTime;
 
         emit changeValidityTime(oldTime, validityTime);
@@ -130,7 +129,7 @@ contract Vendao is ReentrancyGuard{
 
     function changeDex(ISpookySwap _spookyswap) external {
         address oldDex = address(spookySwap);
-        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         spookySwap = _spookyswap;
 
         emit _changeDex(oldDex, address(spookySwap));
@@ -142,7 +141,7 @@ contract Vendao is ReentrancyGuard{
      */
     function setAcceptanceFee(uint128 _acceptance) external {
         uint128 oldFee = acceptanceFee;
-        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         acceptanceFee = _acceptance;
 
         emit _changeAcceptance(oldFee, acceptanceFee);
@@ -168,7 +167,7 @@ contract Vendao is ReentrancyGuard{
      * and only 50% of the amount used to join the DAO is refunded.
      * @dev     . Function responsible for leaving the DAO
      */
-    function leaveDAO() external payable {
+    function leaveDAO() external payable nonReentrant {
         address sender = msg.sender;
         require(VenAccessControl.hasRole(INVESTOR, sender), "VENDAO: Not an investor");
         VenAccessControl.revokeRole(INVESTOR, sender);
@@ -222,7 +221,7 @@ contract Vendao is ReentrancyGuard{
      * @dev     . Function pause proposal is used to prevent excessive project proposals
     */
     function pauseProposal() external {
-        require(VenAccessControl.hasRole(ADMIN, msg.sender), "VENDAO: Not an admin");
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         paused = true;
     }
 
@@ -355,8 +354,8 @@ contract Vendao is ReentrancyGuard{
         uint256 _amount,
         AggregatorV3Interface _dataFeed,
         uint256 _amountOutMin
-        ) external nonReentrant {
-        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+    ) external nonReentrant {
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         require(_token.approve(address(spookySwap), _amount), "approve failed");
         address[] memory path = new address[](3);
 
@@ -389,7 +388,7 @@ contract Vendao is ReentrancyGuard{
         AggregatorV3Interface _dataFeed,
         uint256 _amountOutMin
     ) external nonReentrant {
-        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         require(_token.approve(address(spookySwap), _amount), "approve failed");
         address[] memory path = new address[](2);
 

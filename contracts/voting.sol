@@ -7,7 +7,6 @@ import "./IVenAccessControl.sol";
 
 contract VenVoting {
     bytes32 public constant INVESTOR = keccak256("INVESTOR");
-    bytes32 public constant ADMIN = keccak256("ADMIN");
 
     /**===================================
      *            Custom Error
@@ -38,7 +37,7 @@ contract VenVoting {
     }
 
     function setContestant(Contestant memory _contestant, uint40 _voteTime) external {
-        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         require(contestant.length < 10, "Contestant filled");
         contestant.push(_contestant);
         voteTime = _voteTime;
@@ -50,7 +49,7 @@ contract VenVoting {
     * @dev     . Function responsible for reseting contestant inputs.
     */
     function resetContestant() external {
-        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         for(uint i = 0; i < 10; i ++) {
             contestant.pop();
         }
