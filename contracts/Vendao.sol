@@ -34,8 +34,10 @@ contract Vendao is ReentrancyGuard{
     IVenAccessControl public VenAccessControl;
     ISpookySwap public spookySwap;
     AggregatorV3Interface public FTM_PRICE_FEED;
-    uint208 acceptanceFee;
+    uint128 acceptanceFee;
     uint40 public proposalTime;
+    uint40 public validityTime = uint40(block.timestamp + 4 weeks);
+    uint40 public investTime = uint40(block.timestamp + 2 weeks);
     bool paused;
     mapping(address => mapping(uint48 => bool)) nomineesApproved;
     uint256 DAO_FTM_BALANCE;
@@ -113,6 +115,11 @@ contract Vendao is ReentrancyGuard{
         delete owner;
     }
 
+    function setValTime(uint40 _newTime) external {
+        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+        validityTime = _newTime;
+    }
+
     function changeDex(ISpookySwap _spookyswap) external {
         if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
         spookySwap = _spookyswap;
@@ -122,7 +129,7 @@ contract Vendao is ReentrancyGuard{
      * @dev     . function responsible to set acceptance fee
      * @param   _acceptance  . New acceptance fee to be set
      */
-    function setAcceptanceFee(uint208 _acceptance) external {
+    function setAcceptanceFee(uint128 _acceptance) external {
         if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
         acceptanceFee = _acceptance;
     }
@@ -183,7 +190,7 @@ contract Vendao is ReentrancyGuard{
         uint256 _funding = _fundingRequest * 10**8 / uint256(_price);
         projectProposals.push(Project({
             urlToStorage: _urlToStore,
-            proposalValidity: uint40(timestamp + 2 weeks),
+            proposalValidity: validityTime,
             proposalCreator: sender,
             proposalId: index,
             approvalCount: 0,
@@ -230,7 +237,7 @@ contract Vendao is ReentrancyGuard{
                 proposalsToInvest.push(Invest({
                     url: _proposal.urlToStorage,
                     proposalCreator: _proposal.proposalCreator,
-                    investPeriod: uint40(block.timestamp + 2 weeks),
+                    investPeriod: investTime,
                     investId: index,
                     funded: false,
                     fundingRequest: _proposal.fundingRequest,
