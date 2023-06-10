@@ -35,7 +35,7 @@ contract Vendao is ReentrancyGuard{
     bool paused;
     mapping(address => mapping(uint48 => bool)) nomineesApproved;
     uint256 DAO_FTM_BALANCE;
-    mapping(address => mapping(uint48 => uint256)) investorFund;
+    mapping(address => mapping(uint256 => uint256)) investorFund;
     mapping(address => uint256) investorsId;
     Project[] public projectProposals; // List of project proposals
     Invest[] public proposalsToInvest; // List of proposals to invest in
@@ -199,9 +199,10 @@ contract Vendao is ReentrancyGuard{
      * @param   _proposalId  . proposal id of a project
      */
     function examineProject(uint48 _proposalId) external nonReentrant {
-        if(!VenAccessControl.hasRole(NOMINATED_ADMINS, msg.sender)) revert notAdmin("Only nominated admins can alter change");
+        address sender = msg.sender;
+        if(!VenAccessControl.hasRole(NOMINATED_ADMINS, sender)) revert notAdmin("Only nominated admins can alter change");
         Project memory _proposal = projectProposals[_proposalId];
-        require(!nomineesApproved[msg.sender][_proposalId], "NOMINEE: Approved already");
+        require(!nomineesApproved[sender][_proposalId], "NOMINEE: Approved already");
         if(_proposal.status == Status.approve) revert approved("VENDAO: Project proposal approved");
 
         if((block.timestamp > _proposal.proposalValidity) && (_proposal.status == Status.pending)) {
@@ -210,6 +211,7 @@ contract Vendao is ReentrancyGuard{
 
         }else {
             uint8 _count = projectProposals[_proposalId].approvalCount;
+            investorFund[sender][_proposalId] += incentiveCalc(_proposal.fundingRequest);
             if(_count > 3) {
                 projectProposals[_proposalId].status = Status.approve;
                 uint48 index = uint48(proposalsToInvest.length);
@@ -303,6 +305,47 @@ contract Vendao is ReentrancyGuard{
         }
     }
 
+    /**
+     * @notice  . This function can only be called by an admin. It is used to take profit
+     *  by converting equity offered to stable token, to grow VENDAO treasury.
+     * @dev     . The function is used to convert token to USDC/USDT
+     */
+    function takeProfitInStable(IERC20 _stable, IERC20 _token) external {
+        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+
+    }
+
+    /**
+     * @notice  .This function can only be called by an admin. It is used to take profit
+     *  by converting equity offered to FTM, in other to grow VENDAO treasury.
+     * @dev     .
+     */
+    function takeProfitInFTM() external {
+        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+
+    }
+
+    /**
+     * @dev     . Function to convert stable tokens to ftm
+     */
+    function convertToFTM() external {
+        if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
+
+    }
+
+    // ======================= VIEW FUNCTIONS =======================
+
+    function ftmBalance() external view returns(uint256) {
+        return DAO_FTM_BALANCE;
+    }
+
+    function tokenBalance(IERC20 _tokenAddress) external view returns(uint256) {
+        return _tokenAddress.balanceOf(address(this));
+    }
+
+
+    // ===================== INTERNAL FUNCTIONS ====================
+
     function _daoFundingCalc(uint256 _fundingRequest) internal view returns(uint256) {
         uint256 investingAmount = (10 * _fundingRequest) / 100;
         if(DAO_FTM_BALANCE >= investingAmount){
@@ -310,6 +353,10 @@ contract Vendao is ReentrancyGuard{
         }else {
             return 0;
         }
+    }
+
+    function incentiveCalc(uint256 _fundingRequest) internal pure returns(uint256 incentive) {
+        incentive = (1 * _fundingRequest) / 10000; // 0.01% as the incentive fee
     }
 
     function _investorClaimCalc(
