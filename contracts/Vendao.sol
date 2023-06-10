@@ -24,6 +24,11 @@ contract Vendao is ReentrancyGuard{
     /**===================================
      *            EVENTS
     =====================================*/
+    event changeValidityTime(uint40, uint40);
+    event _changeDex(address, address);
+    event _changeAcceptance(uint128, uint128);
+    event _joinDao(address, uint256);
+    event _leaveDao(address);
 
     /*====================================
     **           STATE VARIBLES
@@ -116,13 +121,19 @@ contract Vendao is ReentrancyGuard{
     }
 
     function setValTime(uint40 _newTime) external {
+        uint40 oldTime = validityTime;
         if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
         validityTime = _newTime;
+
+        emit changeValidityTime(oldTime, validityTime);
     }
 
     function changeDex(ISpookySwap _spookyswap) external {
+        address oldDex = address(spookySwap);
         if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
         spookySwap = _spookyswap;
+
+        emit _changeDex(oldDex, address(spookySwap));
     }
 
     /**
@@ -130,8 +141,11 @@ contract Vendao is ReentrancyGuard{
      * @param   _acceptance  . New acceptance fee to be set
      */
     function setAcceptanceFee(uint128 _acceptance) external {
+        uint128 oldFee = acceptanceFee;
         if(!VenAccessControl.hasRole(ADMIN, msg.sender)) revert notAdmin("VENDAO: Only admin can alter change");
         acceptanceFee = _acceptance;
+
+        emit _changeAcceptance(oldFee, acceptanceFee);
     }
 
     /**
@@ -145,6 +159,8 @@ contract Vendao is ReentrancyGuard{
         VenAccessControl.grantRole(INVESTOR, sender);
         _newTokenId = VenAccessTicket.daoPassTicket(sender);
         investorsId[sender] = _newTokenId;
+
+        emit _joinDao(sender, _newTokenId);
     }
 
     /**
@@ -161,15 +177,11 @@ contract Vendao is ReentrancyGuard{
         (bool success, ) = payable(sender).call{value: (acceptanceFee / 2)}("");
 
         require(success, "Transaction Unsuccessful");
-    }
 
+        emit _leaveDao(sender);
+    }
     // ================ Project Proposal Section ====================
 
-    /**
-     * @notice  . Any body can call this function to propose a project
-     * @dev     . Function responsible for taking project proposal before, it's being moved to the dao for invedtors
-     * @param   _urlToStore  . url to the storage location of the project proposal overview
-     */
     /**
      * @notice  . Any body can call this function to propose a project. Project can only be proposed once in a week
      * @dev     . Function responsible for taking project proposal before, it's being moved to the dao for invedtors
@@ -201,12 +213,14 @@ contract Vendao is ReentrancyGuard{
         }));
 
         proposalTime = timestamp + 1 weeks;
+
+        
     }
 
     /**
      * @notice  . This can only be called by the admin
      * @dev     . Function pause proposal is used to prevent excessive project proposals
-     */
+    */
     function pauseProposal() external {
         require(VenAccessControl.hasRole(ADMIN, msg.sender), "VENDAO: Not an admin");
         paused = true;
