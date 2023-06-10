@@ -1,19 +1,26 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const admin = "0x5DE9d9C1dC9b407a9873E2F428c54b74c325b82b";
+  // Deploy vendao contract
+  const Vendao = await ethers.getContractFactory("Vendao");
+  const vendao = await Vendao.deploy();
 
-  const lockedAmount = ethers.utils.parseEther("0.001");
+  await vendao.deployed();
 
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  console.log(`Vendao is deployed to ${vendao.address}`);
+  
+  // Deploy VenAccessControl contract
+  const VenAccessControl = await ethers.getContractFactory("VenAccessControl");
+  const venAccessControl = await VenAccessControl.deploy(vendao.address, admin);
 
-  await lock.deployed();
+  await venAccessControl.deployed();
 
-  console.log(
-    `Lock with ${ethers.utils.formatEther(lockedAmount)}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
-  );
+  console.log(`VenAccessControl is deployed to ${venAccessControl.address}`);
+  
+  // Deploy VenAccessTicket contract
+  const VenAccessTicket = await ethers.getContractFactory("VenAccessTicket");
+  const venAccessTicket = await VenAccessControl.deploy()
 }
 
 // We recommend this pattern to be able to use async/await everywhere
