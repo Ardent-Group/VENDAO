@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity 0.8.18;
 
 interface IVenAccessControl {
     function grantRole(bytes32 role, address account) external;

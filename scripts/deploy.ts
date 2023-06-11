@@ -1,7 +1,8 @@
-import { ethers } from "hardhat";
+import { ethers, run } from "hardhat";
 
 async function main() {
-  const admin = "0x5DE9d9C1dC9b407a9873E2F428c54b74c325b82b";
+  const _admin = "0x5DE9d9C1dC9b407a9873E2F428c54b74c325b82b";
+  const spookyDEX = "0xa6AD18C2aC47803E193F75c3677b14BF19B94883";
   // Deploy vendao contract
   const Vendao = await ethers.getContractFactory("Vendao");
   const vendao = await Vendao.deploy();
@@ -12,7 +13,7 @@ async function main() {
   
   // Deploy VenAccessControl contract
   const VenAccessControl = await ethers.getContractFactory("VenAccessControl");
-  const venAccessControl = await VenAccessControl.deploy(vendao.address, admin);
+  const venAccessControl = await VenAccessControl.deploy(vendao.address, _admin);
 
   await venAccessControl.deployed();
 
@@ -20,7 +21,57 @@ async function main() {
   
   // Deploy VenAccessTicket contract
   const VenAccessTicket = await ethers.getContractFactory("VenAccessTicket");
-  const venAccessTicket = await VenAccessControl.deploy()
+  const venAccessTicket = await VenAccessTicket.deploy(venAccessControl.address);
+
+  await venAccessTicket.deployed();
+
+  console.log(`VenAccessTicket is deployed to ${venAccessTicket.address}`);
+
+  // Deploy VenVoting contract
+  const VenVoting = await ethers.getContractFactory("VenVoting");
+  const venVoting = await VenVoting.deploy(venAccessControl.address);
+
+  await venVoting.deployed();
+
+  console.log(`VenVoting is deployed to ${venVoting.address}`);
+
+  // Initiate access control for VENDAO
+  await vendao.init(venAccessTicket.address, venAccessControl.address, spookyDEX);
+  console.log(`VENDAO successfully initiated access control`);
+  
+
+  // console.log(`Verifying VENDAO contract....`);
+  // await run("verify: verify", {
+  //   address: vendao.address,
+  //   constructorArguments: []
+  // });
+
+  // console.log(`Verifying VenAccessControl contract....`);
+  // await run("verify:verify", {
+  //   address: venAccessControl.address,
+  //   constructorArguments: [
+  //     vendao.address,
+  //     _admin
+  //   ]
+  // });
+
+  // console.log(`Verifying VenAccessTicket contract....`);
+  // await run("verify:verify", {
+  //   address: venAccessTicket.address,
+  //   constructorArguments: [
+  //     venAccessControl.address
+  //   ]
+  // });
+
+  // console.log(`Verifying VenVoting contract....`);
+  // await run("verify:verify", {
+  //   address: venVoting.address,
+  //   constructorArguments: [
+  //     venAccessControl.address
+  //   ]
+  // });
+  
+  
 }
 
 // We recommend this pattern to be able to use async/await everywhere

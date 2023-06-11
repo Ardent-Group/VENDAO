@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.20;
+pragma solidity 0.8.18;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
@@ -24,7 +24,6 @@ contract Vendao is ReentrancyGuard{
      *            EVENTS
     =====================================*/
     event changeValidityTime(uint40, uint40);
-    event _changeDex(address, address);
     event _changeAcceptance(uint128, uint128);
     event _joinDao(address, uint256);
     event _leaveDao(address);
@@ -40,8 +39,6 @@ contract Vendao is ReentrancyGuard{
     AggregatorV3Interface public FTM_PRICE_FEED;
     uint128 acceptanceFee;
     uint40 public proposalTime;
-    uint40 public validityTime = uint40(block.timestamp + 4 weeks);
-    uint40 public investTime = uint40(block.timestamp + 2 weeks);
     bool paused;
     mapping(address => mapping(uint48 => bool)) nomineesApproved;
     uint256 DAO_FTM_BALANCE;
@@ -119,22 +116,6 @@ contract Vendao is ReentrancyGuard{
         delete owner;
     }
 
-    function setValTime(uint40 _newTime) external {
-        uint40 oldTime = validityTime;
-        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
-        validityTime = _newTime;
-
-        emit changeValidityTime(oldTime, validityTime);
-    }
-
-    function changeDex(ISpookySwap _spookyswap) external {
-        address oldDex = address(spookySwap);
-        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
-        spookySwap = _spookyswap;
-
-        emit _changeDex(oldDex, address(spookySwap));
-    }
-
     /**
      * @dev     . function responsible to set acceptance fee
      * @param   _acceptance  . New acceptance fee to be set
@@ -201,7 +182,7 @@ contract Vendao is ReentrancyGuard{
         uint256 _funding = _fundingRequest * 10**8 / uint256(_price);
         projectProposals.push(Project({
             urlToStorage: _urlToStore,
-            proposalValidity: validityTime,
+            proposalValidity: uint40(block.timestamp + 4 weeks),
             proposalCreator: sender,
             proposalId: index,
             approvalCount: 0,
@@ -250,7 +231,7 @@ contract Vendao is ReentrancyGuard{
                 proposalsToInvest.push(Invest({
                     url: _proposal.urlToStorage,
                     proposalCreator: _proposal.proposalCreator,
-                    investPeriod: investTime,
+                    investPeriod: uint40(block.timestamp + 2 weeks),
                     investId: index,
                     funded: false,
                     fundingRequest: _proposal.fundingRequest,
