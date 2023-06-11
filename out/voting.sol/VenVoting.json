@@ -538,20 +538,20 @@
   },
   "ast": {
     "absolutePath": "contracts/voting.sol",
-    "id": 1882,
+    "id": 1940,
     "exportedSymbols": {
       "IVenAccessControl": [
         66
       ],
       "VenVoting": [
-        1881
+        1939
       ]
     },
     "nodeType": "SourceUnit",
     "src": "32:2982:6",
     "nodes": [
       {
-        "id": 1571,
+        "id": 1629,
         "nodeType": "PragmaDirective",
         "src": "32:23:6",
         "nodes": [],
@@ -562,25 +562,25 @@
         ]
       },
       {
-        "id": 1572,
+        "id": 1630,
         "nodeType": "ImportDirective",
         "src": "57:33:6",
         "nodes": [],
         "absolutePath": "contracts/IVenAccessControl.sol",
         "file": "./IVenAccessControl.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 1882,
+        "scope": 1940,
         "sourceUnit": 67,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 1881,
+        "id": 1939,
         "nodeType": "ContractDefinition",
         "src": "94:2920:6",
         "nodes": [
           {
-            "id": 1577,
+            "id": 1635,
             "nodeType": "VariableDeclaration",
             "src": "119:56:6",
             "nodes": [],
@@ -589,7 +589,7 @@
             "mutability": "constant",
             "name": "INVESTOR",
             "nameLocation": "143:8:6",
-            "scope": 1881,
+            "scope": 1939,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -597,7 +597,7 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 1573,
+              "id": 1631,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
               "src": "119:7:6",
@@ -610,7 +610,7 @@
               "arguments": [
                 {
                   "hexValue": "494e564553544f52",
-                  "id": 1575,
+                  "id": 1633,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
@@ -632,7 +632,7 @@
                     "typeString": "literal_string \"INVESTOR\""
                   }
                 ],
-                "id": 1574,
+                "id": 1632,
                 "name": "keccak256",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
@@ -643,7 +643,7 @@
                   "typeString": "function (bytes memory) pure returns (bytes32)"
                 }
               },
-              "id": 1576,
+              "id": 1634,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -662,12 +662,12 @@
             "visibility": "public"
           },
           {
-            "id": 1582,
+            "id": 1640,
             "nodeType": "ErrorDefinition",
             "src": "300:23:6",
             "nodes": [],
             "documentation": {
-              "id": 1578,
+              "id": 1636,
               "nodeType": "StructuredDocumentation",
               "src": "182:113:6",
               "text": "===================================\n            Custom Error\n====================================="
@@ -676,17 +676,17 @@
             "name": "notAdmin",
             "nameLocation": "306:8:6",
             "parameters": {
-              "id": 1581,
+              "id": 1639,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1580,
+                  "id": 1638,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1582,
+                  "scope": 1640,
                   "src": "315:6:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -695,7 +695,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1579,
+                    "id": 1637,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "315:6:6",
@@ -711,7 +711,7 @@
             }
           },
           {
-            "id": 1586,
+            "id": 1644,
             "nodeType": "ErrorDefinition",
             "src": "328:25:6",
             "nodes": [],
@@ -719,17 +719,17 @@
             "name": "noElection",
             "nameLocation": "334:10:6",
             "parameters": {
-              "id": 1585,
+              "id": 1643,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1584,
+                  "id": 1642,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1586,
+                  "scope": 1644,
                   "src": "345:6:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -738,7 +738,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1583,
+                    "id": 1641,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "345:6:6",
@@ -754,7 +754,7 @@
             }
           },
           {
-            "id": 1590,
+            "id": 1648,
             "nodeType": "ErrorDefinition",
             "src": "358:26:6",
             "nodes": [],
@@ -762,17 +762,17 @@
             "name": "exceedLimit",
             "nameLocation": "364:11:6",
             "parameters": {
-              "id": 1589,
+              "id": 1647,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1588,
+                  "id": 1646,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1590,
+                  "scope": 1648,
                   "src": "376:6:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -781,7 +781,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 1587,
+                    "id": 1645,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "376:6:6",
@@ -797,7 +797,7 @@
             }
           },
           {
-            "id": 1594,
+            "id": 1652,
             "nodeType": "VariableDeclaration",
             "src": "511:30:6",
             "nodes": [],
@@ -806,46 +806,46 @@
             "mutability": "mutable",
             "name": "contestant",
             "nameLocation": "531:10:6",
-            "scope": 1881,
+            "scope": 1939,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage",
               "typeString": "struct VenVoting.Contestant[]"
             },
             "typeName": {
               "baseType": {
-                "id": 1592,
+                "id": 1650,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
-                  "id": 1591,
+                  "id": 1649,
                   "name": "Contestant",
                   "nameLocations": [
                     "511:10:6"
                   ],
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1612,
+                  "referencedDeclaration": 1670,
                   "src": "511:10:6"
                 },
-                "referencedDeclaration": 1612,
+                "referencedDeclaration": 1670,
                 "src": "511:10:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Contestant_$1612_storage_ptr",
+                  "typeIdentifier": "t_struct$_Contestant_$1670_storage_ptr",
                   "typeString": "struct VenVoting.Contestant"
                 }
               },
-              "id": 1593,
+              "id": 1651,
               "nodeType": "ArrayTypeName",
               "src": "511:12:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr",
                 "typeString": "struct VenVoting.Contestant[]"
               }
             },
             "visibility": "public"
           },
           {
-            "id": 1596,
+            "id": 1654,
             "nodeType": "VariableDeclaration",
             "src": "547:15:6",
             "nodes": [],
@@ -853,7 +853,7 @@
             "mutability": "mutable",
             "name": "voteTime",
             "nameLocation": "554:8:6",
-            "scope": 1881,
+            "scope": 1939,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -861,7 +861,7 @@
               "typeString": "uint40"
             },
             "typeName": {
-              "id": 1595,
+              "id": 1653,
               "name": "uint40",
               "nodeType": "ElementaryTypeName",
               "src": "547:6:6",
@@ -873,7 +873,7 @@
             "visibility": "internal"
           },
           {
-            "id": 1600,
+            "id": 1658,
             "nodeType": "VariableDeclaration",
             "src": "568:42:6",
             "nodes": [],
@@ -882,7 +882,7 @@
             "mutability": "mutable",
             "name": "voteLimit",
             "nameLocation": "601:9:6",
-            "scope": 1881,
+            "scope": 1939,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -890,11 +890,11 @@
               "typeString": "mapping(address => uint8)"
             },
             "typeName": {
-              "id": 1599,
+              "id": 1657,
               "keyName": "",
               "keyNameLocation": "-1:-1:-1",
               "keyType": {
-                "id": 1597,
+                "id": 1655,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "576:7:6",
@@ -912,7 +912,7 @@
               "valueName": "",
               "valueNameLocation": "-1:-1:-1",
               "valueType": {
-                "id": 1598,
+                "id": 1656,
                 "name": "uint8",
                 "nodeType": "ElementaryTypeName",
                 "src": "587:5:6",
@@ -925,7 +925,7 @@
             "visibility": "public"
           },
           {
-            "id": 1603,
+            "id": 1661,
             "nodeType": "VariableDeclaration",
             "src": "641:41:6",
             "nodes": [],
@@ -934,7 +934,7 @@
             "mutability": "mutable",
             "name": "VenAccessControl",
             "nameLocation": "666:16:6",
-            "scope": 1881,
+            "scope": 1939,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -942,10 +942,10 @@
               "typeString": "contract IVenAccessControl"
             },
             "typeName": {
-              "id": 1602,
+              "id": 1660,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 1601,
+                "id": 1659,
                 "name": "IVenAccessControl",
                 "nameLocations": [
                   "641:17:6"
@@ -964,7 +964,7 @@
             "visibility": "public"
           },
           {
-            "id": 1612,
+            "id": 1670,
             "nodeType": "StructDefinition",
             "src": "689:120:6",
             "nodes": [],
@@ -972,12 +972,12 @@
             "members": [
               {
                 "constant": false,
-                "id": 1605,
+                "id": 1663,
                 "mutability": "mutable",
                 "name": "name",
                 "nameLocation": "724:4:6",
                 "nodeType": "VariableDeclaration",
-                "scope": 1612,
+                "scope": 1670,
                 "src": "717:11:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -986,7 +986,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 1604,
+                  "id": 1662,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "717:6:6",
@@ -999,12 +999,12 @@
               },
               {
                 "constant": false,
-                "id": 1607,
+                "id": 1665,
                 "mutability": "mutable",
                 "name": "voteCount",
                 "nameLocation": "746:9:6",
                 "nodeType": "VariableDeclaration",
-                "scope": 1612,
+                "scope": 1670,
                 "src": "738:17:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1013,7 +1013,7 @@
                   "typeString": "uint128"
                 },
                 "typeName": {
-                  "id": 1606,
+                  "id": 1664,
                   "name": "uint128",
                   "nodeType": "ElementaryTypeName",
                   "src": "738:7:6",
@@ -1026,12 +1026,12 @@
               },
               {
                 "constant": false,
-                "id": 1609,
+                "id": 1667,
                 "mutability": "mutable",
                 "name": "participant",
                 "nameLocation": "773:11:6",
                 "nodeType": "VariableDeclaration",
-                "scope": 1612,
+                "scope": 1670,
                 "src": "765:19:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1040,7 +1040,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 1608,
+                  "id": 1666,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "765:7:6",
@@ -1054,12 +1054,12 @@
               },
               {
                 "constant": false,
-                "id": 1611,
+                "id": 1669,
                 "mutability": "mutable",
                 "name": "Id",
                 "nameLocation": "800:2:6",
                 "nodeType": "VariableDeclaration",
-                "scope": 1612,
+                "scope": 1670,
                 "src": "794:8:6",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -1068,7 +1068,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 1610,
+                  "id": 1668,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "794:5:6",
@@ -1082,33 +1082,33 @@
             ],
             "name": "Contestant",
             "nameLocation": "696:10:6",
-            "scope": 1881,
+            "scope": 1939,
             "visibility": "public"
           },
           {
-            "id": 1623,
+            "id": 1681,
             "nodeType": "FunctionDefinition",
             "src": "815:96:6",
             "nodes": [],
             "body": {
-              "id": 1622,
+              "id": 1680,
               "nodeType": "Block",
               "src": "861:50:6",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
-                    "id": 1620,
+                    "id": 1678,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 1618,
+                      "id": 1676,
                       "name": "VenAccessControl",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1603,
+                      "referencedDeclaration": 1661,
                       "src": "871:16:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_IVenAccessControl_$66",
@@ -1118,11 +1118,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1619,
+                      "id": 1677,
                       "name": "_accessControl",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1615,
+                      "referencedDeclaration": 1673,
                       "src": "890:14:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_contract$_IVenAccessControl_$66",
@@ -1135,7 +1135,7 @@
                       "typeString": "contract IVenAccessControl"
                     }
                   },
-                  "id": 1621,
+                  "id": 1679,
                   "nodeType": "ExpressionStatement",
                   "src": "871:33:6"
                 }
@@ -1147,17 +1147,17 @@
             "name": "",
             "nameLocation": "-1:-1:-1",
             "parameters": {
-              "id": 1616,
+              "id": 1674,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1615,
+                  "id": 1673,
                   "mutability": "mutable",
                   "name": "_accessControl",
                   "nameLocation": "845:14:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1623,
+                  "scope": 1681,
                   "src": "827:32:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1166,10 +1166,10 @@
                     "typeString": "contract IVenAccessControl"
                   },
                   "typeName": {
-                    "id": 1614,
+                    "id": 1672,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1613,
+                      "id": 1671,
                       "name": "IVenAccessControl",
                       "nameLocations": [
                         "827:17:6"
@@ -1191,23 +1191,23 @@
               "src": "826:34:6"
             },
             "returnParameters": {
-              "id": 1617,
+              "id": 1675,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "861:0:6"
             },
-            "scope": 1881,
+            "scope": 1939,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 1661,
+            "id": 1719,
             "nodeType": "FunctionDefinition",
             "src": "917:325:6",
             "nodes": [],
             "body": {
-              "id": 1660,
+              "id": 1718,
               "nodeType": "Block",
               "src": "998:244:6",
               "nodes": [],
@@ -1218,14 +1218,14 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 1636,
+                    "id": 1694,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "expression": {
-                        "id": 1631,
+                        "id": 1689,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -1236,7 +1236,7 @@
                           "typeString": "msg"
                         }
                       },
-                      "id": 1632,
+                      "id": 1690,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1257,18 +1257,18 @@
                       "expression": {
                         "argumentTypes": [],
                         "expression": {
-                          "id": 1633,
+                          "id": 1691,
                           "name": "VenAccessControl",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1603,
+                          "referencedDeclaration": 1661,
                           "src": "1025:16:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_IVenAccessControl_$66",
                             "typeString": "contract IVenAccessControl"
                           }
                         },
-                        "id": 1634,
+                        "id": 1692,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1283,7 +1283,7 @@
                           "typeString": "function () external returns (address)"
                         }
                       },
-                      "id": 1635,
+                      "id": 1693,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1305,7 +1305,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1641,
+                  "id": 1699,
                   "nodeType": "IfStatement",
                   "src": "1008:97:6",
                   "trueBody": {
@@ -1313,7 +1313,7 @@
                       "arguments": [
                         {
                           "hexValue": "56454e44414f3a204f6e6c792061646d696e2063616e20616c746572206368616e6765",
-                          "id": 1638,
+                          "id": 1696,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1335,18 +1335,18 @@
                             "typeString": "literal_string \"VENDAO: Only admin can alter change\""
                           }
                         ],
-                        "id": 1637,
+                        "id": 1695,
                         "name": "notAdmin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1582,
+                        "referencedDeclaration": 1640,
                         "src": "1058:8:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_error_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 1639,
+                      "id": 1697,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1362,7 +1362,7 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 1640,
+                    "id": 1698,
                     "nodeType": "RevertStatement",
                     "src": "1051:54:6"
                   }
@@ -1375,25 +1375,25 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1646,
+                        "id": 1704,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "expression": {
-                            "id": 1643,
+                            "id": 1701,
                             "name": "contestant",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1594,
+                            "referencedDeclaration": 1652,
                             "src": "1123:10:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage",
+                              "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage",
                               "typeString": "struct VenVoting.Contestant storage ref[] storage ref"
                             }
                           },
-                          "id": 1644,
+                          "id": 1702,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1411,7 +1411,7 @@
                         "operator": "<",
                         "rightExpression": {
                           "hexValue": "3130",
-                          "id": 1645,
+                          "id": 1703,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1433,7 +1433,7 @@
                       },
                       {
                         "hexValue": "436f6e74657374616e742066696c6c6564",
-                        "id": 1647,
+                        "id": 1705,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -1459,7 +1459,7 @@
                           "typeString": "literal_string \"Contestant filled\""
                         }
                       ],
-                      "id": 1642,
+                      "id": 1700,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -1473,7 +1473,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1648,
+                    "id": 1706,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1489,7 +1489,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1649,
+                  "id": 1707,
                   "nodeType": "ExpressionStatement",
                   "src": "1115:52:6"
                 },
@@ -1497,14 +1497,14 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 1653,
+                        "id": 1711,
                         "name": "_contestant",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1626,
+                        "referencedDeclaration": 1684,
                         "src": "1193:11:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                          "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                           "typeString": "struct VenVoting.Contestant memory"
                         }
                       }
@@ -1512,23 +1512,23 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                          "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                           "typeString": "struct VenVoting.Contestant memory"
                         }
                       ],
                       "expression": {
-                        "id": 1650,
+                        "id": 1708,
                         "name": "contestant",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1594,
+                        "referencedDeclaration": 1652,
                         "src": "1177:10:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage",
                           "typeString": "struct VenVoting.Contestant storage ref[] storage ref"
                         }
                       },
-                      "id": 1652,
+                      "id": 1710,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1538,11 +1538,11 @@
                       "nodeType": "MemberAccess",
                       "src": "1177:15:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr_$_t_struct$_Contestant_$1612_storage_$returns$__$attached_to$_t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr_$_t_struct$_Contestant_$1670_storage_$returns$__$attached_to$_t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr_$",
                         "typeString": "function (struct VenVoting.Contestant storage ref[] storage pointer,struct VenVoting.Contestant storage ref)"
                       }
                     },
-                    "id": 1654,
+                    "id": 1712,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1558,23 +1558,23 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1655,
+                  "id": 1713,
                   "nodeType": "ExpressionStatement",
                   "src": "1177:28:6"
                 },
                 {
                   "expression": {
-                    "id": 1658,
+                    "id": 1716,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 1656,
+                      "id": 1714,
                       "name": "voteTime",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1596,
+                      "referencedDeclaration": 1654,
                       "src": "1215:8:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint40",
@@ -1584,11 +1584,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 1657,
+                      "id": 1715,
                       "name": "_voteTime",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1628,
+                      "referencedDeclaration": 1686,
                       "src": "1226:9:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint40",
@@ -1601,7 +1601,7 @@
                       "typeString": "uint40"
                     }
                   },
-                  "id": 1659,
+                  "id": 1717,
                   "nodeType": "ExpressionStatement",
                   "src": "1215:20:6"
                 }
@@ -1614,41 +1614,41 @@
             "name": "setContestant",
             "nameLocation": "926:13:6",
             "parameters": {
-              "id": 1629,
+              "id": 1687,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1626,
+                  "id": 1684,
                   "mutability": "mutable",
                   "name": "_contestant",
                   "nameLocation": "958:11:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1661,
+                  "scope": 1719,
                   "src": "940:29:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                    "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                     "typeString": "struct VenVoting.Contestant"
                   },
                   "typeName": {
-                    "id": 1625,
+                    "id": 1683,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1624,
+                      "id": 1682,
                       "name": "Contestant",
                       "nameLocations": [
                         "940:10:6"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1612,
+                      "referencedDeclaration": 1670,
                       "src": "940:10:6"
                     },
-                    "referencedDeclaration": 1612,
+                    "referencedDeclaration": 1670,
                     "src": "940:10:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Contestant_$1612_storage_ptr",
+                      "typeIdentifier": "t_struct$_Contestant_$1670_storage_ptr",
                       "typeString": "struct VenVoting.Contestant"
                     }
                   },
@@ -1656,12 +1656,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1628,
+                  "id": 1686,
                   "mutability": "mutable",
                   "name": "_voteTime",
                   "nameLocation": "978:9:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1661,
+                  "scope": 1719,
                   "src": "971:16:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1670,7 +1670,7 @@
                     "typeString": "uint40"
                   },
                   "typeName": {
-                    "id": 1627,
+                    "id": 1685,
                     "name": "uint40",
                     "nodeType": "ElementaryTypeName",
                     "src": "971:6:6",
@@ -1685,23 +1685,23 @@
               "src": "939:49:6"
             },
             "returnParameters": {
-              "id": 1630,
+              "id": 1688,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "998:0:6"
             },
-            "scope": 1881,
+            "scope": 1939,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 1694,
+            "id": 1752,
             "nodeType": "FunctionDefinition",
             "src": "1393:230:6",
             "nodes": [],
             "body": {
-              "id": 1693,
+              "id": 1751,
               "nodeType": "Block",
               "src": "1429:194:6",
               "nodes": [],
@@ -1712,14 +1712,14 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 1670,
+                    "id": 1728,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "expression": {
-                        "id": 1665,
+                        "id": 1723,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -1730,7 +1730,7 @@
                           "typeString": "msg"
                         }
                       },
-                      "id": 1666,
+                      "id": 1724,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1751,18 +1751,18 @@
                       "expression": {
                         "argumentTypes": [],
                         "expression": {
-                          "id": 1667,
+                          "id": 1725,
                           "name": "VenAccessControl",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1603,
+                          "referencedDeclaration": 1661,
                           "src": "1456:16:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_IVenAccessControl_$66",
                             "typeString": "contract IVenAccessControl"
                           }
                         },
-                        "id": 1668,
+                        "id": 1726,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1777,7 +1777,7 @@
                           "typeString": "function () external returns (address)"
                         }
                       },
-                      "id": 1669,
+                      "id": 1727,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1799,7 +1799,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1675,
+                  "id": 1733,
                   "nodeType": "IfStatement",
                   "src": "1439:97:6",
                   "trueBody": {
@@ -1807,7 +1807,7 @@
                       "arguments": [
                         {
                           "hexValue": "56454e44414f3a204f6e6c792061646d696e2063616e20616c746572206368616e6765",
-                          "id": 1672,
+                          "id": 1730,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1829,18 +1829,18 @@
                             "typeString": "literal_string \"VENDAO: Only admin can alter change\""
                           }
                         ],
-                        "id": 1671,
+                        "id": 1729,
                         "name": "notAdmin",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1582,
+                        "referencedDeclaration": 1640,
                         "src": "1489:8:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_error_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 1673,
+                      "id": 1731,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1856,14 +1856,14 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 1674,
+                    "id": 1732,
                     "nodeType": "RevertStatement",
                     "src": "1482:54:6"
                   }
                 },
                 {
                   "body": {
-                    "id": 1691,
+                    "id": 1749,
                     "nodeType": "Block",
                     "src": "1576:41:6",
                     "statements": [
@@ -1873,18 +1873,18 @@
                           "expression": {
                             "argumentTypes": [],
                             "expression": {
-                              "id": 1686,
+                              "id": 1744,
                               "name": "contestant",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1594,
+                              "referencedDeclaration": 1652,
                               "src": "1590:10:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage",
                                 "typeString": "struct VenVoting.Contestant storage ref[] storage ref"
                               }
                             },
-                            "id": 1688,
+                            "id": 1746,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1894,11 +1894,11 @@
                             "nodeType": "MemberAccess",
                             "src": "1590:14:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_function_arraypop_nonpayable$_t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr_$returns$__$attached_to$_t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr_$",
+                              "typeIdentifier": "t_function_arraypop_nonpayable$_t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr_$returns$__$attached_to$_t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr_$",
                               "typeString": "function (struct VenVoting.Contestant storage ref[] storage pointer)"
                             }
                           },
-                          "id": 1689,
+                          "id": 1747,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1914,7 +1914,7 @@
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 1690,
+                        "id": 1748,
                         "nodeType": "ExpressionStatement",
                         "src": "1590:16:6"
                       }
@@ -1925,17 +1925,17 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1682,
+                    "id": 1740,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 1680,
+                      "id": 1738,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1677,
+                      "referencedDeclaration": 1735,
                       "src": "1562:1:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -1946,7 +1946,7 @@
                     "operator": "<",
                     "rightExpression": {
                       "hexValue": "3130",
-                      "id": 1681,
+                      "id": 1739,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -1966,20 +1966,20 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1692,
+                  "id": 1750,
                   "initializationExpression": {
                     "assignments": [
-                      1677
+                      1735
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 1677,
+                        "id": 1735,
                         "mutability": "mutable",
                         "name": "i",
                         "nameLocation": "1555:1:6",
                         "nodeType": "VariableDeclaration",
-                        "scope": 1692,
+                        "scope": 1750,
                         "src": "1550:6:6",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -1988,7 +1988,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 1676,
+                          "id": 1734,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
                           "src": "1550:4:6",
@@ -2000,10 +2000,10 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 1679,
+                    "id": 1737,
                     "initialValue": {
                       "hexValue": "30",
-                      "id": 1678,
+                      "id": 1736,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2022,7 +2022,7 @@
                   },
                   "loopExpression": {
                     "expression": {
-                      "id": 1684,
+                      "id": 1742,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2032,11 +2032,11 @@
                       "prefix": false,
                       "src": "1570:4:6",
                       "subExpression": {
-                        "id": 1683,
+                        "id": 1741,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1677,
+                        "referencedDeclaration": 1735,
                         "src": "1570:1:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -2048,7 +2048,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1685,
+                    "id": 1743,
                     "nodeType": "ExpressionStatement",
                     "src": "1570:4:6"
                   },
@@ -2058,7 +2058,7 @@
               ]
             },
             "documentation": {
-              "id": 1662,
+              "id": 1720,
               "nodeType": "StructuredDocumentation",
               "src": "1249:139:6",
               "text": " @notice  . This function can only be called by admin\n @dev     . Function responsible for reseting contestant inputs."
@@ -2070,46 +2070,46 @@
             "name": "resetContestant",
             "nameLocation": "1402:15:6",
             "parameters": {
-              "id": 1663,
+              "id": 1721,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1417:2:6"
             },
             "returnParameters": {
-              "id": 1664,
+              "id": 1722,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1429:0:6"
             },
-            "scope": 1881,
+            "scope": 1939,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 1736,
+            "id": 1794,
             "nodeType": "FunctionDefinition",
             "src": "1629:368:6",
             "nodes": [],
             "body": {
-              "id": 1735,
+              "id": 1793,
               "nodeType": "Block",
               "src": "1664:333:6",
               "nodes": [],
               "statements": [
                 {
                   "assignments": [
-                    1698
+                    1756
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1698,
+                      "id": 1756,
                       "mutability": "mutable",
                       "name": "sender",
                       "nameLocation": "1682:6:6",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1735,
+                      "scope": 1793,
                       "src": "1674:14:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2118,7 +2118,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1697,
+                        "id": 1755,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "1674:7:6",
@@ -2131,10 +2131,10 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1701,
+                  "id": 1759,
                   "initialValue": {
                     "expression": {
-                      "id": 1699,
+                      "id": 1757,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -2145,7 +2145,7 @@
                         "typeString": "msg"
                       }
                     },
-                    "id": 1700,
+                    "id": 1758,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2168,11 +2168,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 1705,
+                            "id": 1763,
                             "name": "INVESTOR",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1577,
+                            "referencedDeclaration": 1635,
                             "src": "1764:8:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -2180,11 +2180,11 @@
                             }
                           },
                           {
-                            "id": 1706,
+                            "id": 1764,
                             "name": "sender",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1698,
+                            "referencedDeclaration": 1756,
                             "src": "1774:6:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -2204,18 +2204,18 @@
                             }
                           ],
                           "expression": {
-                            "id": 1703,
+                            "id": 1761,
                             "name": "VenAccessControl",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1603,
+                            "referencedDeclaration": 1661,
                             "src": "1739:16:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_IVenAccessControl_$66",
                               "typeString": "contract IVenAccessControl"
                             }
                           },
-                          "id": 1704,
+                          "id": 1762,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2230,7 +2230,7 @@
                             "typeString": "function (bytes32,address) external returns (bool)"
                           }
                         },
-                        "id": 1707,
+                        "id": 1765,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2248,7 +2248,7 @@
                       },
                       {
                         "hexValue": "56454e44414f3a204e6f7420616e20696e766573746f72",
-                        "id": 1708,
+                        "id": 1766,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2274,7 +2274,7 @@
                           "typeString": "literal_string \"VENDAO: Not an investor\""
                         }
                       ],
-                      "id": 1702,
+                      "id": 1760,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2288,7 +2288,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1709,
+                    "id": 1767,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2304,7 +2304,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1710,
+                  "id": 1768,
                   "nodeType": "ExpressionStatement",
                   "src": "1731:78:6"
                 },
@@ -2314,14 +2314,14 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1714,
+                    "id": 1772,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "expression": {
-                        "id": 1711,
+                        "id": 1769,
                         "name": "block",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
@@ -2332,7 +2332,7 @@
                           "typeString": "block"
                         }
                       },
-                      "id": 1712,
+                      "id": 1770,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2349,11 +2349,11 @@
                     "nodeType": "BinaryOperation",
                     "operator": ">",
                     "rightExpression": {
-                      "id": 1713,
+                      "id": 1771,
                       "name": "voteTime",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1596,
+                      "referencedDeclaration": 1654,
                       "src": "1840:8:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint40",
@@ -2366,7 +2366,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1719,
+                  "id": 1777,
                   "nodeType": "IfStatement",
                   "src": "1819:80:6",
                   "trueBody": {
@@ -2374,7 +2374,7 @@
                       "arguments": [
                         {
                           "hexValue": "56454e44414f3a204e6f207570636f6d696e6720656c656374696f6e",
-                          "id": 1716,
+                          "id": 1774,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2396,18 +2396,18 @@
                             "typeString": "literal_string \"VENDAO: No upcoming election\""
                           }
                         ],
-                        "id": 1715,
+                        "id": 1773,
                         "name": "noElection",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1586,
+                        "referencedDeclaration": 1644,
                         "src": "1857:10:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_error_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 1717,
+                      "id": 1775,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2423,7 +2423,7 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 1718,
+                    "id": 1776,
                     "nodeType": "RevertStatement",
                     "src": "1850:49:6"
                   }
@@ -2436,31 +2436,31 @@
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
                         },
-                        "id": 1725,
+                        "id": 1783,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "baseExpression": {
-                            "id": 1721,
+                            "id": 1779,
                             "name": "voteLimit",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1600,
+                            "referencedDeclaration": 1658,
                             "src": "1917:9:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_uint8_$",
                               "typeString": "mapping(address => uint8)"
                             }
                           },
-                          "id": 1723,
+                          "id": 1781,
                           "indexExpression": {
-                            "id": 1722,
+                            "id": 1780,
                             "name": "sender",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1698,
+                            "referencedDeclaration": 1756,
                             "src": "1927:6:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -2482,7 +2482,7 @@
                         "operator": ">",
                         "rightExpression": {
                           "hexValue": "30",
-                          "id": 1724,
+                          "id": 1782,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2504,7 +2504,7 @@
                       },
                       {
                         "hexValue": "456c696769626c6520746f20766f7465",
-                        "id": 1726,
+                        "id": 1784,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2530,7 +2530,7 @@
                           "typeString": "literal_string \"Eligible to vote\""
                         }
                       ],
-                      "id": 1720,
+                      "id": 1778,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2544,7 +2544,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1727,
+                    "id": 1785,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2560,37 +2560,37 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1728,
+                  "id": 1786,
                   "nodeType": "ExpressionStatement",
                   "src": "1909:50:6"
                 },
                 {
                   "expression": {
-                    "id": 1733,
+                    "id": 1791,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 1729,
+                        "id": 1787,
                         "name": "voteLimit",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
+                        "referencedDeclaration": 1658,
                         "src": "1969:9:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint8_$",
                           "typeString": "mapping(address => uint8)"
                         }
                       },
-                      "id": 1731,
+                      "id": 1789,
                       "indexExpression": {
-                        "id": 1730,
+                        "id": 1788,
                         "name": "sender",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1698,
+                        "referencedDeclaration": 1756,
                         "src": "1979:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2612,7 +2612,7 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "30",
-                      "id": 1732,
+                      "id": 1790,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2632,7 +2632,7 @@
                       "typeString": "uint8"
                     }
                   },
-                  "id": 1734,
+                  "id": 1792,
                   "nodeType": "ExpressionStatement",
                   "src": "1969:21:6"
                 }
@@ -2645,46 +2645,46 @@
             "name": "resetVoteLimit",
             "nameLocation": "1638:14:6",
             "parameters": {
-              "id": 1695,
+              "id": 1753,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1652:2:6"
             },
             "returnParameters": {
-              "id": 1696,
+              "id": 1754,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1664:0:6"
             },
-            "scope": 1881,
+            "scope": 1939,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 1779,
+            "id": 1837,
             "nodeType": "FunctionDefinition",
             "src": "2003:338:6",
             "nodes": [],
             "body": {
-              "id": 1778,
+              "id": 1836,
               "nodeType": "Block",
               "src": "2040:301:6",
               "nodes": [],
               "statements": [
                 {
                   "assignments": [
-                    1742
+                    1800
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1742,
+                      "id": 1800,
                       "mutability": "mutable",
                       "name": "sender",
                       "nameLocation": "2058:6:6",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1778,
+                      "scope": 1836,
                       "src": "2050:14:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -2693,7 +2693,7 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 1741,
+                        "id": 1799,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
                         "src": "2050:7:6",
@@ -2706,10 +2706,10 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1745,
+                  "id": 1803,
                   "initialValue": {
                     "expression": {
-                      "id": 1743,
+                      "id": 1801,
                       "name": "msg",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
@@ -2720,7 +2720,7 @@
                         "typeString": "msg"
                       }
                     },
-                    "id": 1744,
+                    "id": 1802,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2743,11 +2743,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 1749,
+                            "id": 1807,
                             "name": "INVESTOR",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1577,
+                            "referencedDeclaration": 1635,
                             "src": "2140:8:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bytes32",
@@ -2755,11 +2755,11 @@
                             }
                           },
                           {
-                            "id": 1750,
+                            "id": 1808,
                             "name": "sender",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1742,
+                            "referencedDeclaration": 1800,
                             "src": "2150:6:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
@@ -2779,18 +2779,18 @@
                             }
                           ],
                           "expression": {
-                            "id": 1747,
+                            "id": 1805,
                             "name": "VenAccessControl",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1603,
+                            "referencedDeclaration": 1661,
                             "src": "2115:16:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_contract$_IVenAccessControl_$66",
                               "typeString": "contract IVenAccessControl"
                             }
                           },
-                          "id": 1748,
+                          "id": 1806,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2805,7 +2805,7 @@
                             "typeString": "function (bytes32,address) external returns (bool)"
                           }
                         },
-                        "id": 1751,
+                        "id": 1809,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2823,7 +2823,7 @@
                       },
                       {
                         "hexValue": "56454e44414f3a204e6f7420616e20696e766573746f72",
-                        "id": 1752,
+                        "id": 1810,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -2849,7 +2849,7 @@
                           "typeString": "literal_string \"VENDAO: Not an investor\""
                         }
                       ],
-                      "id": 1746,
+                      "id": 1804,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2863,7 +2863,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 1753,
+                    "id": 1811,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2879,7 +2879,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1754,
+                  "id": 1812,
                   "nodeType": "ExpressionStatement",
                   "src": "2107:78:6"
                 },
@@ -2889,31 +2889,31 @@
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     },
-                    "id": 1759,
+                    "id": 1817,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "baseExpression": {
-                        "id": 1755,
+                        "id": 1813,
                         "name": "voteLimit",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
+                        "referencedDeclaration": 1658,
                         "src": "2198:9:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint8_$",
                           "typeString": "mapping(address => uint8)"
                         }
                       },
-                      "id": 1757,
+                      "id": 1815,
                       "indexExpression": {
-                        "id": 1756,
+                        "id": 1814,
                         "name": "sender",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1742,
+                        "referencedDeclaration": 1800,
                         "src": "2208:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -2935,7 +2935,7 @@
                     "operator": ">",
                     "rightExpression": {
                       "hexValue": "33",
-                      "id": 1758,
+                      "id": 1816,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -2955,7 +2955,7 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1764,
+                  "id": 1822,
                   "nodeType": "IfStatement",
                   "src": "2195:67:6",
                   "trueBody": {
@@ -2963,7 +2963,7 @@
                       "arguments": [
                         {
                           "hexValue": "45786365656420566f74696e67206c696d6974",
-                          "id": 1761,
+                          "id": 1819,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -2985,18 +2985,18 @@
                             "typeString": "literal_string \"Exceed Voting limit\""
                           }
                         ],
-                        "id": 1760,
+                        "id": 1818,
                         "name": "exceedLimit",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1590,
+                        "referencedDeclaration": 1648,
                         "src": "2228:11:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_error_pure$_t_string_memory_ptr_$returns$__$",
                           "typeString": "function (string memory) pure"
                         }
                       },
-                      "id": 1762,
+                      "id": 1820,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3012,14 +3012,14 @@
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 1763,
+                    "id": 1821,
                     "nodeType": "RevertStatement",
                     "src": "2221:41:6"
                   }
                 },
                 {
                   "expression": {
-                    "id": 1770,
+                    "id": 1828,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -3027,24 +3027,24 @@
                     "leftHandSide": {
                       "expression": {
                         "baseExpression": {
-                          "id": 1765,
+                          "id": 1823,
                           "name": "contestant",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1594,
+                          "referencedDeclaration": 1652,
                           "src": "2272:10:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage",
                             "typeString": "struct VenVoting.Contestant storage ref[] storage ref"
                           }
                         },
-                        "id": 1767,
+                        "id": 1825,
                         "indexExpression": {
-                          "id": 1766,
+                          "id": 1824,
                           "name": "_id",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1738,
+                          "referencedDeclaration": 1796,
                           "src": "2283:3:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
@@ -3058,11 +3058,11 @@
                         "nodeType": "IndexAccess",
                         "src": "2272:15:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Contestant_$1612_storage",
+                          "typeIdentifier": "t_struct$_Contestant_$1670_storage",
                           "typeString": "struct VenVoting.Contestant storage ref"
                         }
                       },
-                      "id": 1768,
+                      "id": 1826,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -3070,7 +3070,7 @@
                       "memberLocation": "2288:9:6",
                       "memberName": "voteCount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1607,
+                      "referencedDeclaration": 1665,
                       "src": "2272:25:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint128",
@@ -3081,7 +3081,7 @@
                     "operator": "+=",
                     "rightHandSide": {
                       "hexValue": "31",
-                      "id": 1769,
+                      "id": 1827,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -3101,37 +3101,37 @@
                       "typeString": "uint128"
                     }
                   },
-                  "id": 1771,
+                  "id": 1829,
                   "nodeType": "ExpressionStatement",
                   "src": "2272:30:6"
                 },
                 {
                   "expression": {
-                    "id": 1776,
+                    "id": 1834,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "baseExpression": {
-                        "id": 1772,
+                        "id": 1830,
                         "name": "voteLimit",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1600,
+                        "referencedDeclaration": 1658,
                         "src": "2312:9:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_uint8_$",
                           "typeString": "mapping(address => uint8)"
                         }
                       },
-                      "id": 1774,
+                      "id": 1832,
                       "indexExpression": {
-                        "id": 1773,
+                        "id": 1831,
                         "name": "sender",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1742,
+                        "referencedDeclaration": 1800,
                         "src": "2322:6:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -3153,7 +3153,7 @@
                     "operator": "+=",
                     "rightHandSide": {
                       "hexValue": "31",
-                      "id": 1775,
+                      "id": 1833,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -3173,7 +3173,7 @@
                       "typeString": "uint8"
                     }
                   },
-                  "id": 1777,
+                  "id": 1835,
                   "nodeType": "ExpressionStatement",
                   "src": "2312:22:6"
                 }
@@ -3186,17 +3186,17 @@
             "name": "voteAdmin",
             "nameLocation": "2012:9:6",
             "parameters": {
-              "id": 1739,
+              "id": 1797,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1738,
+                  "id": 1796,
                   "mutability": "mutable",
                   "name": "_id",
                   "nameLocation": "2028:3:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1779,
+                  "scope": 1837,
                   "src": "2022:9:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -3205,7 +3205,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 1737,
+                    "id": 1795,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "2022:5:6",
@@ -3220,89 +3220,89 @@
               "src": "2021:11:6"
             },
             "returnParameters": {
-              "id": 1740,
+              "id": 1798,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2040:0:6"
             },
-            "scope": 1881,
+            "scope": 1939,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 1880,
+            "id": 1938,
             "nodeType": "FunctionDefinition",
             "src": "2347:665:6",
             "nodes": [],
             "body": {
-              "id": 1879,
+              "id": 1937,
               "nodeType": "Block",
               "src": "2414:598:6",
               "nodes": [],
               "statements": [
                 {
                   "assignments": [
-                    1790
+                    1848
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1790,
+                      "id": 1848,
                       "mutability": "mutable",
                       "name": "_contestant",
                       "nameLocation": "2444:11:6",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1879,
+                      "scope": 1937,
                       "src": "2424:31:6",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                        "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                         "typeString": "struct VenVoting.Contestant[]"
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 1788,
+                          "id": 1846,
                           "nodeType": "UserDefinedTypeName",
                           "pathNode": {
-                            "id": 1787,
+                            "id": 1845,
                             "name": "Contestant",
                             "nameLocations": [
                               "2424:10:6"
                             ],
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 1612,
+                            "referencedDeclaration": 1670,
                             "src": "2424:10:6"
                           },
-                          "referencedDeclaration": 1612,
+                          "referencedDeclaration": 1670,
                           "src": "2424:10:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Contestant_$1612_storage_ptr",
+                            "typeIdentifier": "t_struct$_Contestant_$1670_storage_ptr",
                             "typeString": "struct VenVoting.Contestant"
                           }
                         },
-                        "id": 1789,
+                        "id": 1847,
                         "nodeType": "ArrayTypeName",
                         "src": "2424:12:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr",
                           "typeString": "struct VenVoting.Contestant[]"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1792,
+                  "id": 1850,
                   "initialValue": {
-                    "id": 1791,
+                    "id": 1849,
                     "name": "contestant",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1594,
+                    "referencedDeclaration": 1652,
                     "src": "2458:10:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage",
+                      "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage",
                       "typeString": "struct VenVoting.Contestant storage ref[] storage ref"
                     }
                   },
@@ -3311,62 +3311,62 @@
                 },
                 {
                   "assignments": [
-                    1797
+                    1855
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1797,
+                      "id": 1855,
                       "mutability": "mutable",
                       "name": "nominees",
                       "nameLocation": "2498:8:6",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1879,
+                      "scope": 1937,
                       "src": "2478:28:6",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                        "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                         "typeString": "struct VenVoting.Contestant[]"
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 1795,
+                          "id": 1853,
                           "nodeType": "UserDefinedTypeName",
                           "pathNode": {
-                            "id": 1794,
+                            "id": 1852,
                             "name": "Contestant",
                             "nameLocations": [
                               "2478:10:6"
                             ],
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 1612,
+                            "referencedDeclaration": 1670,
                             "src": "2478:10:6"
                           },
-                          "referencedDeclaration": 1612,
+                          "referencedDeclaration": 1670,
                           "src": "2478:10:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Contestant_$1612_storage_ptr",
+                            "typeIdentifier": "t_struct$_Contestant_$1670_storage_ptr",
                             "typeString": "struct VenVoting.Contestant"
                           }
                         },
-                        "id": 1796,
+                        "id": 1854,
                         "nodeType": "ArrayTypeName",
                         "src": "2478:12:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr",
                           "typeString": "struct VenVoting.Contestant[]"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1804,
+                  "id": 1862,
                   "initialValue": {
                     "arguments": [
                       {
                         "hexValue": "35",
-                        "id": 1802,
+                        "id": 1860,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -3388,7 +3388,7 @@
                           "typeString": "int_const 5"
                         }
                       ],
-                      "id": 1801,
+                      "id": 1859,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -3396,40 +3396,40 @@
                       "nodeType": "NewExpression",
                       "src": "2509:16:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr_$",
+                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr_$",
                         "typeString": "function (uint256) pure returns (struct VenVoting.Contestant memory[] memory)"
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 1799,
+                          "id": 1857,
                           "nodeType": "UserDefinedTypeName",
                           "pathNode": {
-                            "id": 1798,
+                            "id": 1856,
                             "name": "Contestant",
                             "nameLocations": [
                               "2513:10:6"
                             ],
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 1612,
+                            "referencedDeclaration": 1670,
                             "src": "2513:10:6"
                           },
-                          "referencedDeclaration": 1612,
+                          "referencedDeclaration": 1670,
                           "src": "2513:10:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Contestant_$1612_storage_ptr",
+                            "typeIdentifier": "t_struct$_Contestant_$1670_storage_ptr",
                             "typeString": "struct VenVoting.Contestant"
                           }
                         },
-                        "id": 1800,
+                        "id": 1858,
                         "nodeType": "ArrayTypeName",
                         "src": "2513:12:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr",
                           "typeString": "struct VenVoting.Contestant[]"
                         }
                       }
                     },
-                    "id": 1803,
+                    "id": 1861,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
@@ -3441,7 +3441,7 @@
                     "src": "2509:19:6",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                       "typeString": "struct VenVoting.Contestant memory[] memory"
                     }
                   },
@@ -3450,64 +3450,64 @@
                 },
                 {
                   "assignments": [
-                    1807
+                    1865
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1807,
+                      "id": 1865,
                       "mutability": "mutable",
                       "name": "max",
                       "nameLocation": "2557:3:6",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1879,
+                      "scope": 1937,
                       "src": "2539:21:6",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                        "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                         "typeString": "struct VenVoting.Contestant"
                       },
                       "typeName": {
-                        "id": 1806,
+                        "id": 1864,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 1805,
+                          "id": 1863,
                           "name": "Contestant",
                           "nameLocations": [
                             "2539:10:6"
                           ],
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 1612,
+                          "referencedDeclaration": 1670,
                           "src": "2539:10:6"
                         },
-                        "referencedDeclaration": 1612,
+                        "referencedDeclaration": 1670,
                         "src": "2539:10:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Contestant_$1612_storage_ptr",
+                          "typeIdentifier": "t_struct$_Contestant_$1670_storage_ptr",
                           "typeString": "struct VenVoting.Contestant"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1808,
+                  "id": 1866,
                   "nodeType": "VariableDeclarationStatement",
                   "src": "2539:21:6"
                 },
                 {
                   "assignments": [
-                    1810
+                    1868
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 1810,
+                      "id": 1868,
                       "mutability": "mutable",
                       "name": "index",
                       "nameLocation": "2576:5:6",
                       "nodeType": "VariableDeclaration",
-                      "scope": 1879,
+                      "scope": 1937,
                       "src": "2570:11:6",
                       "stateVariable": false,
                       "storageLocation": "default",
@@ -3516,7 +3516,7 @@
                         "typeString": "uint8"
                       },
                       "typeName": {
-                        "id": 1809,
+                        "id": 1867,
                         "name": "uint8",
                         "nodeType": "ElementaryTypeName",
                         "src": "2570:5:6",
@@ -3528,32 +3528,32 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 1811,
+                  "id": 1869,
                   "nodeType": "VariableDeclarationStatement",
                   "src": "2570:11:6"
                 },
                 {
                   "body": {
-                    "id": 1875,
+                    "id": 1933,
                     "nodeType": "Block",
                     "src": "2619:362:6",
                     "statements": [
                       {
                         "expression": {
-                          "id": 1826,
+                          "id": 1884,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
-                            "id": 1822,
+                            "id": 1880,
                             "name": "max",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1807,
+                            "referencedDeclaration": 1865,
                             "src": "2633:3:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                              "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                               "typeString": "struct VenVoting.Contestant memory"
                             }
                           },
@@ -3561,21 +3561,21 @@
                           "operator": "=",
                           "rightHandSide": {
                             "baseExpression": {
-                              "id": 1823,
+                              "id": 1881,
                               "name": "nominees",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1797,
+                              "referencedDeclaration": 1855,
                               "src": "2639:8:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                                 "typeString": "struct VenVoting.Contestant memory[] memory"
                               }
                             },
-                            "id": 1825,
+                            "id": 1883,
                             "indexExpression": {
                               "hexValue": "30",
-                              "id": 1824,
+                              "id": 1882,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -3596,33 +3596,33 @@
                             "nodeType": "IndexAccess",
                             "src": "2639:11:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                              "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                               "typeString": "struct VenVoting.Contestant memory"
                             }
                           },
                           "src": "2633:17:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                            "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                             "typeString": "struct VenVoting.Contestant memory"
                           }
                         },
-                        "id": 1827,
+                        "id": 1885,
                         "nodeType": "ExpressionStatement",
                         "src": "2633:17:6"
                       },
                       {
                         "expression": {
-                          "id": 1830,
+                          "id": 1888,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
-                            "id": 1828,
+                            "id": 1886,
                             "name": "index",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1810,
+                            "referencedDeclaration": 1868,
                             "src": "2664:5:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint8",
@@ -3633,7 +3633,7 @@
                           "operator": "=",
                           "rightHandSide": {
                             "hexValue": "30",
-                            "id": 1829,
+                            "id": 1887,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -3653,13 +3653,13 @@
                             "typeString": "uint8"
                           }
                         },
-                        "id": 1831,
+                        "id": 1889,
                         "nodeType": "ExpressionStatement",
                         "src": "2664:9:6"
                       },
                       {
                         "body": {
-                          "id": 1862,
+                          "id": 1920,
                           "nodeType": "Block",
                           "src": "2733:168:6",
                           "statements": [
@@ -3669,25 +3669,25 @@
                                   "typeIdentifier": "t_uint128",
                                   "typeString": "uint128"
                                 },
-                                "id": 1849,
+                                "id": 1907,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "leftExpression": {
                                   "expression": {
-                                    "id": 1843,
+                                    "id": 1901,
                                     "name": "max",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 1807,
+                                    "referencedDeclaration": 1865,
                                     "src": "2754:3:6",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                                      "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                                       "typeString": "struct VenVoting.Contestant memory"
                                     }
                                   },
-                                  "id": 1844,
+                                  "id": 1902,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
@@ -3695,7 +3695,7 @@
                                   "memberLocation": "2758:9:6",
                                   "memberName": "voteCount",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 1607,
+                                  "referencedDeclaration": 1665,
                                   "src": "2754:13:6",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint128",
@@ -3707,24 +3707,24 @@
                                 "rightExpression": {
                                   "expression": {
                                     "baseExpression": {
-                                      "id": 1845,
+                                      "id": 1903,
                                       "name": "_contestant",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1790,
+                                      "referencedDeclaration": 1848,
                                       "src": "2770:11:6",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                                        "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                                         "typeString": "struct VenVoting.Contestant memory[] memory"
                                       }
                                     },
-                                    "id": 1847,
+                                    "id": 1905,
                                     "indexExpression": {
-                                      "id": 1846,
+                                      "id": 1904,
                                       "name": "j",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 1833,
+                                      "referencedDeclaration": 1891,
                                       "src": "2782:1:6",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
@@ -3738,11 +3738,11 @@
                                     "nodeType": "IndexAccess",
                                     "src": "2770:14:6",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                                      "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                                       "typeString": "struct VenVoting.Contestant memory"
                                     }
                                   },
-                                  "id": 1848,
+                                  "id": 1906,
                                   "isConstant": false,
                                   "isLValue": true,
                                   "isPure": false,
@@ -3750,7 +3750,7 @@
                                   "memberLocation": "2785:9:6",
                                   "memberName": "voteCount",
                                   "nodeType": "MemberAccess",
-                                  "referencedDeclaration": 1607,
+                                  "referencedDeclaration": 1665,
                                   "src": "2770:24:6",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint128",
@@ -3763,30 +3763,30 @@
                                   "typeString": "bool"
                                 }
                               },
-                              "id": 1861,
+                              "id": 1919,
                               "nodeType": "IfStatement",
                               "src": "2751:136:6",
                               "trueBody": {
-                                "id": 1860,
+                                "id": 1918,
                                 "nodeType": "Block",
                                 "src": "2795:92:6",
                                 "statements": [
                                   {
                                     "expression": {
-                                      "id": 1854,
+                                      "id": 1912,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "leftHandSide": {
-                                        "id": 1850,
+                                        "id": 1908,
                                         "name": "max",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 1807,
+                                        "referencedDeclaration": 1865,
                                         "src": "2817:3:6",
                                         "typeDescriptions": {
-                                          "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                                          "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                                           "typeString": "struct VenVoting.Contestant memory"
                                         }
                                       },
@@ -3794,24 +3794,24 @@
                                       "operator": "=",
                                       "rightHandSide": {
                                         "baseExpression": {
-                                          "id": 1851,
+                                          "id": 1909,
                                           "name": "_contestant",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1790,
+                                          "referencedDeclaration": 1848,
                                           "src": "2823:11:6",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                                            "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                                             "typeString": "struct VenVoting.Contestant memory[] memory"
                                           }
                                         },
-                                        "id": 1853,
+                                        "id": 1911,
                                         "indexExpression": {
-                                          "id": 1852,
+                                          "id": 1910,
                                           "name": "j",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 1833,
+                                          "referencedDeclaration": 1891,
                                           "src": "2835:1:6",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_uint8",
@@ -3825,33 +3825,33 @@
                                         "nodeType": "IndexAccess",
                                         "src": "2823:14:6",
                                         "typeDescriptions": {
-                                          "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                                          "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                                           "typeString": "struct VenVoting.Contestant memory"
                                         }
                                       },
                                       "src": "2817:20:6",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                                        "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                                         "typeString": "struct VenVoting.Contestant memory"
                                       }
                                     },
-                                    "id": 1855,
+                                    "id": 1913,
                                     "nodeType": "ExpressionStatement",
                                     "src": "2817:20:6"
                                   },
                                   {
                                     "expression": {
-                                      "id": 1858,
+                                      "id": 1916,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "leftHandSide": {
-                                        "id": 1856,
+                                        "id": 1914,
                                         "name": "index",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 1810,
+                                        "referencedDeclaration": 1868,
                                         "src": "2859:5:6",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint8",
@@ -3861,11 +3861,11 @@
                                       "nodeType": "Assignment",
                                       "operator": "=",
                                       "rightHandSide": {
-                                        "id": 1857,
+                                        "id": 1915,
                                         "name": "j",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 1833,
+                                        "referencedDeclaration": 1891,
                                         "src": "2867:1:6",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint8",
@@ -3878,7 +3878,7 @@
                                         "typeString": "uint8"
                                       }
                                     },
-                                    "id": 1859,
+                                    "id": 1917,
                                     "nodeType": "ExpressionStatement",
                                     "src": "2859:9:6"
                                   }
@@ -3892,17 +3892,17 @@
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 1839,
+                          "id": 1897,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
-                            "id": 1836,
+                            "id": 1894,
                             "name": "j",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1833,
+                            "referencedDeclaration": 1891,
                             "src": "2705:1:6",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint8",
@@ -3913,18 +3913,18 @@
                           "operator": "<",
                           "rightExpression": {
                             "expression": {
-                              "id": 1837,
+                              "id": 1895,
                               "name": "_contestant",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1790,
+                              "referencedDeclaration": 1848,
                               "src": "2709:11:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                                 "typeString": "struct VenVoting.Contestant memory[] memory"
                               }
                             },
-                            "id": 1838,
+                            "id": 1896,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -3944,20 +3944,20 @@
                             "typeString": "bool"
                           }
                         },
-                        "id": 1863,
+                        "id": 1921,
                         "initializationExpression": {
                           "assignments": [
-                            1833
+                            1891
                           ],
                           "declarations": [
                             {
                               "constant": false,
-                              "id": 1833,
+                              "id": 1891,
                               "mutability": "mutable",
                               "name": "j",
                               "nameLocation": "2698:1:6",
                               "nodeType": "VariableDeclaration",
-                              "scope": 1863,
+                              "scope": 1921,
                               "src": "2692:7:6",
                               "stateVariable": false,
                               "storageLocation": "default",
@@ -3966,7 +3966,7 @@
                                 "typeString": "uint8"
                               },
                               "typeName": {
-                                "id": 1832,
+                                "id": 1890,
                                 "name": "uint8",
                                 "nodeType": "ElementaryTypeName",
                                 "src": "2692:5:6",
@@ -3978,10 +3978,10 @@
                               "visibility": "internal"
                             }
                           ],
-                          "id": 1835,
+                          "id": 1893,
                           "initialValue": {
                             "hexValue": "30",
-                            "id": 1834,
+                            "id": 1892,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -4000,7 +4000,7 @@
                         },
                         "loopExpression": {
                           "expression": {
-                            "id": 1841,
+                            "id": 1899,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -4010,11 +4010,11 @@
                             "prefix": false,
                             "src": "2729:3:6",
                             "subExpression": {
-                              "id": 1840,
+                              "id": 1898,
                               "name": "j",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1833,
+                              "referencedDeclaration": 1891,
                               "src": "2729:1:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
@@ -4026,7 +4026,7 @@
                               "typeString": "uint8"
                             }
                           },
-                          "id": 1842,
+                          "id": 1900,
                           "nodeType": "ExpressionStatement",
                           "src": "2729:3:6"
                         },
@@ -4035,31 +4035,31 @@
                       },
                       {
                         "expression": {
-                          "id": 1868,
+                          "id": 1926,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "baseExpression": {
-                              "id": 1864,
+                              "id": 1922,
                               "name": "nominees",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1797,
+                              "referencedDeclaration": 1855,
                               "src": "2914:8:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                                 "typeString": "struct VenVoting.Contestant memory[] memory"
                               }
                             },
-                            "id": 1866,
+                            "id": 1924,
                             "indexExpression": {
-                              "id": 1865,
+                              "id": 1923,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1813,
+                              "referencedDeclaration": 1871,
                               "src": "2923:1:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
@@ -4073,37 +4073,37 @@
                             "nodeType": "IndexAccess",
                             "src": "2914:11:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                              "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                               "typeString": "struct VenVoting.Contestant memory"
                             }
                           },
                           "nodeType": "Assignment",
                           "operator": "=",
                           "rightHandSide": {
-                            "id": 1867,
+                            "id": 1925,
                             "name": "max",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1807,
+                            "referencedDeclaration": 1865,
                             "src": "2928:3:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                              "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                               "typeString": "struct VenVoting.Contestant memory"
                             }
                           },
                           "src": "2914:17:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                            "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                             "typeString": "struct VenVoting.Contestant memory"
                           }
                         },
-                        "id": 1869,
+                        "id": 1927,
                         "nodeType": "ExpressionStatement",
                         "src": "2914:17:6"
                       },
                       {
                         "expression": {
-                          "id": 1873,
+                          "id": 1931,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4114,24 +4114,24 @@
                           "src": "2945:25:6",
                           "subExpression": {
                             "baseExpression": {
-                              "id": 1870,
+                              "id": 1928,
                               "name": "_contestant",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1790,
+                              "referencedDeclaration": 1848,
                               "src": "2952:11:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                                "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                                 "typeString": "struct VenVoting.Contestant memory[] memory"
                               }
                             },
-                            "id": 1872,
+                            "id": 1930,
                             "indexExpression": {
-                              "id": 1871,
+                              "id": 1929,
                               "name": "index",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1810,
+                              "referencedDeclaration": 1868,
                               "src": "2964:5:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint8",
@@ -4145,7 +4145,7 @@
                             "nodeType": "IndexAccess",
                             "src": "2952:18:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Contestant_$1612_memory_ptr",
+                              "typeIdentifier": "t_struct$_Contestant_$1670_memory_ptr",
                               "typeString": "struct VenVoting.Contestant memory"
                             }
                           },
@@ -4154,7 +4154,7 @@
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 1874,
+                        "id": 1932,
                         "nodeType": "ExpressionStatement",
                         "src": "2945:25:6"
                       }
@@ -4165,17 +4165,17 @@
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
                     },
-                    "id": 1818,
+                    "id": 1876,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 1816,
+                      "id": 1874,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1813,
+                      "referencedDeclaration": 1871,
                       "src": "2608:1:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
@@ -4186,7 +4186,7 @@
                     "operator": "<",
                     "rightExpression": {
                       "hexValue": "35",
-                      "id": 1817,
+                      "id": 1875,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4206,20 +4206,20 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1876,
+                  "id": 1934,
                   "initializationExpression": {
                     "assignments": [
-                      1813
+                      1871
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 1813,
+                        "id": 1871,
                         "mutability": "mutable",
                         "name": "i",
                         "nameLocation": "2601:1:6",
                         "nodeType": "VariableDeclaration",
-                        "scope": 1876,
+                        "scope": 1934,
                         "src": "2595:7:6",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -4228,7 +4228,7 @@
                           "typeString": "uint8"
                         },
                         "typeName": {
-                          "id": 1812,
+                          "id": 1870,
                           "name": "uint8",
                           "nodeType": "ElementaryTypeName",
                           "src": "2595:5:6",
@@ -4240,10 +4240,10 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 1815,
+                    "id": 1873,
                     "initialValue": {
                       "hexValue": "30",
-                      "id": 1814,
+                      "id": 1872,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4262,7 +4262,7 @@
                   },
                   "loopExpression": {
                     "expression": {
-                      "id": 1820,
+                      "id": 1878,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4272,11 +4272,11 @@
                       "prefix": false,
                       "src": "2615:3:6",
                       "subExpression": {
-                        "id": 1819,
+                        "id": 1877,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1813,
+                        "referencedDeclaration": 1871,
                         "src": "2615:1:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
@@ -4288,7 +4288,7 @@
                         "typeString": "uint8"
                       }
                     },
-                    "id": 1821,
+                    "id": 1879,
                     "nodeType": "ExpressionStatement",
                     "src": "2615:3:6"
                   },
@@ -4297,19 +4297,19 @@
                 },
                 {
                   "expression": {
-                    "id": 1877,
+                    "id": 1935,
                     "name": "nominees",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 1797,
+                    "referencedDeclaration": 1855,
                     "src": "2997:8:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                       "typeString": "struct VenVoting.Contestant memory[] memory"
                     }
                   },
-                  "functionReturnParameters": 1785,
-                  "id": 1878,
+                  "functionReturnParameters": 1843,
+                  "id": 1936,
                   "nodeType": "Return",
                   "src": "2990:15:6"
                 }
@@ -4322,56 +4322,56 @@
             "name": "top5Nominees",
             "nameLocation": "2356:12:6",
             "parameters": {
-              "id": 1780,
+              "id": 1838,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2368:2:6"
             },
             "returnParameters": {
-              "id": 1785,
+              "id": 1843,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1784,
+                  "id": 1842,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1880,
+                  "scope": 1938,
                   "src": "2393:19:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct VenVoting.Contestant[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1782,
+                      "id": 1840,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 1781,
+                        "id": 1839,
                         "name": "Contestant",
                         "nameLocations": [
                           "2393:10:6"
                         ],
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 1612,
+                        "referencedDeclaration": 1670,
                         "src": "2393:10:6"
                       },
-                      "referencedDeclaration": 1612,
+                      "referencedDeclaration": 1670,
                       "src": "2393:10:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Contestant_$1612_storage_ptr",
+                        "typeIdentifier": "t_struct$_Contestant_$1670_storage_ptr",
                         "typeString": "struct VenVoting.Contestant"
                       }
                     },
-                    "id": 1783,
+                    "id": 1841,
                     "nodeType": "ArrayTypeName",
                     "src": "2393:12:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Contestant_$1612_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Contestant_$1670_storage_$dyn_storage_ptr",
                       "typeString": "struct VenVoting.Contestant[]"
                     }
                   },
@@ -4380,7 +4380,7 @@
               ],
               "src": "2392:21:6"
             },
-            "scope": 1881,
+            "scope": 1939,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -4393,15 +4393,15 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          1881
+          1939
         ],
         "name": "VenVoting",
         "nameLocation": "103:9:6",
-        "scope": 1882,
+        "scope": 1940,
         "usedErrors": [
-          1582,
-          1586,
-          1590
+          1640,
+          1644,
+          1648
         ]
       }
     ],

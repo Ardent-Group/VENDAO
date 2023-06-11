@@ -816,20 +816,20 @@
   },
   "ast": {
     "absolutePath": "node_modules/@openzeppelin/contracts/access/IAccessControlDefaultAdminRules.sol",
-    "id": 3090,
+    "id": 3148,
     "exportedSymbols": {
       "IAccessControl": [
-        3004
+        3062
       ],
       "IAccessControlDefaultAdminRules": [
-        3089
+        3147
       ]
     },
     "nodeType": "SourceUnit",
     "src": "126:7241:11",
     "nodes": [
       {
-        "id": 3006,
+        "id": 3064,
         "nodeType": "PragmaDirective",
         "src": "126:23:11",
         "nodes": [],
@@ -841,31 +841,31 @@
         ]
       },
       {
-        "id": 3007,
+        "id": 3065,
         "nodeType": "ImportDirective",
         "src": "151:30:11",
         "nodes": [],
         "absolutePath": "node_modules/@openzeppelin/contracts/access/IAccessControl.sol",
         "file": "./IAccessControl.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 3090,
-        "sourceUnit": 3005,
+        "scope": 3148,
+        "sourceUnit": 3063,
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
-        "id": 3089,
+        "id": 3147,
         "nodeType": "ContractDefinition",
         "src": "320:7046:11",
         "nodes": [
           {
-            "id": 3017,
+            "id": 3075,
             "nodeType": "EventDefinition",
             "src": "623:85:11",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 3011,
+              "id": 3069,
               "nodeType": "StructuredDocumentation",
               "src": "386:232:11",
               "text": " @dev Emitted when a {defaultAdmin} transfer is started, setting `newAdmin` as the next\n address to become the {defaultAdmin} by calling {acceptDefaultAdminTransfer} only after `acceptSchedule`\n passes."
@@ -874,18 +874,18 @@
             "name": "DefaultAdminTransferScheduled",
             "nameLocation": "629:29:11",
             "parameters": {
-              "id": 3016,
+              "id": 3074,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3013,
+                  "id": 3071,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "newAdmin",
                   "nameLocation": "675:8:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3017,
+                  "scope": 3075,
                   "src": "659:24:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -894,7 +894,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3012,
+                    "id": 3070,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "659:7:11",
@@ -908,13 +908,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3015,
+                  "id": 3073,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "acceptSchedule",
                   "nameLocation": "692:14:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3017,
+                  "scope": 3075,
                   "src": "685:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -923,7 +923,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3014,
+                    "id": 3072,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "685:6:11",
@@ -939,13 +939,13 @@
             }
           },
           {
-            "id": 3020,
+            "id": 3078,
             "nodeType": "EventDefinition",
             "src": "842:37:11",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 3018,
+              "id": 3076,
               "nodeType": "StructuredDocumentation",
               "src": "714:123:11",
               "text": " @dev Emitted when a {pendingDefaultAdmin} is reset if it was never accepted, regardless of its schedule."
@@ -954,20 +954,20 @@
             "name": "DefaultAdminTransferCanceled",
             "nameLocation": "848:28:11",
             "parameters": {
-              "id": 3019,
+              "id": 3077,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "876:2:11"
             }
           },
           {
-            "id": 3027,
+            "id": 3085,
             "nodeType": "EventDefinition",
             "src": "1091:79:11",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 3021,
+              "id": 3079,
               "nodeType": "StructuredDocumentation",
               "src": "885:201:11",
               "text": " @dev Emitted when a {defaultAdminDelay} change is started, setting `newDelay` as the next\n delay to be applied between default admin transfer after `effectSchedule` has passed."
@@ -976,18 +976,18 @@
             "name": "DefaultAdminDelayChangeScheduled",
             "nameLocation": "1097:32:11",
             "parameters": {
-              "id": 3026,
+              "id": 3084,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3023,
+                  "id": 3081,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "newDelay",
                   "nameLocation": "1137:8:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3027,
+                  "scope": 3085,
                   "src": "1130:15:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -996,7 +996,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3022,
+                    "id": 3080,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "1130:6:11",
@@ -1009,13 +1009,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 3025,
+                  "id": 3083,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "effectSchedule",
                   "nameLocation": "1154:14:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3027,
+                  "scope": 3085,
                   "src": "1147:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1024,7 +1024,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3024,
+                    "id": 3082,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "1147:6:11",
@@ -1040,13 +1040,13 @@
             }
           },
           {
-            "id": 3030,
+            "id": 3088,
             "nodeType": "EventDefinition",
             "src": "1284:40:11",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 3028,
+              "id": 3086,
               "nodeType": "StructuredDocumentation",
               "src": "1176:103:11",
               "text": " @dev Emitted when a {pendingDefaultAdminDelay} is reset if its schedule didn't pass."
@@ -1055,19 +1055,19 @@
             "name": "DefaultAdminDelayChangeCanceled",
             "nameLocation": "1290:31:11",
             "parameters": {
-              "id": 3029,
+              "id": 3087,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1321:2:11"
             }
           },
           {
-            "id": 3036,
+            "id": 3094,
             "nodeType": "FunctionDefinition",
             "src": "1422:56:11",
             "nodes": [],
             "documentation": {
-              "id": 3031,
+              "id": 3089,
               "nodeType": "StructuredDocumentation",
               "src": "1330:87:11",
               "text": " @dev Returns the address of the current `DEFAULT_ADMIN_ROLE` holder."
@@ -1079,23 +1079,23 @@
             "name": "defaultAdmin",
             "nameLocation": "1431:12:11",
             "parameters": {
-              "id": 3032,
+              "id": 3090,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1443:2:11"
             },
             "returnParameters": {
-              "id": 3035,
+              "id": 3093,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3034,
+                  "id": 3092,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3036,
+                  "scope": 3094,
                   "src": "1469:7:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1104,7 +1104,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3033,
+                    "id": 3091,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1469:7:11",
@@ -1119,18 +1119,18 @@
               ],
               "src": "1468:9:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3044,
+            "id": 3102,
             "nodeType": "FunctionDefinition",
             "src": "1932:95:11",
             "nodes": [],
             "documentation": {
-              "id": 3037,
+              "id": 3095,
               "nodeType": "StructuredDocumentation",
               "src": "1484:443:11",
               "text": " @dev Returns a tuple of a `newAdmin` and an accept schedule.\n After the `schedule` passes, the `newAdmin` will be able to accept the {defaultAdmin} role\n by calling {acceptDefaultAdminTransfer}, completing the role transfer.\n A zero value only in `acceptSchedule` indicates no pending admin transfer.\n NOTE: A zero address `newAdmin` means that {defaultAdmin} is being renounced."
@@ -1142,23 +1142,23 @@
             "name": "pendingDefaultAdmin",
             "nameLocation": "1941:19:11",
             "parameters": {
-              "id": 3038,
+              "id": 3096,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1960:2:11"
             },
             "returnParameters": {
-              "id": 3043,
+              "id": 3101,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3040,
+                  "id": 3098,
                   "mutability": "mutable",
                   "name": "newAdmin",
                   "nameLocation": "1994:8:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3044,
+                  "scope": 3102,
                   "src": "1986:16:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1167,7 +1167,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3039,
+                    "id": 3097,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1986:7:11",
@@ -1181,12 +1181,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3042,
+                  "id": 3100,
                   "mutability": "mutable",
                   "name": "acceptSchedule",
                   "nameLocation": "2011:14:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3044,
+                  "scope": 3102,
                   "src": "2004:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1195,7 +1195,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3041,
+                    "id": 3099,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "2004:6:11",
@@ -1209,18 +1209,18 @@
               ],
               "src": "1985:41:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3050,
+            "id": 3108,
             "nodeType": "FunctionDefinition",
             "src": "2489:60:11",
             "nodes": [],
             "documentation": {
-              "id": 3045,
+              "id": 3103,
               "nodeType": "StructuredDocumentation",
               "src": "2033:451:11",
               "text": " @dev Returns the delay required to schedule the acceptance of a {defaultAdmin} transfer started.\n This delay will be added to the current timestamp when calling {beginDefaultAdminTransfer} to set\n the acceptance schedule.\n NOTE: If a delay change has been scheduled, it will take effect as soon as the schedule passes, making this\n function returns the new delay. See {changeDefaultAdminDelay}."
@@ -1232,23 +1232,23 @@
             "name": "defaultAdminDelay",
             "nameLocation": "2498:17:11",
             "parameters": {
-              "id": 3046,
+              "id": 3104,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2515:2:11"
             },
             "returnParameters": {
-              "id": 3049,
+              "id": 3107,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3048,
+                  "id": 3106,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3050,
+                  "scope": 3108,
                   "src": "2541:6:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1257,7 +1257,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3047,
+                    "id": 3105,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "2541:6:11",
@@ -1271,18 +1271,18 @@
               ],
               "src": "2540:8:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3058,
+            "id": 3116,
             "nodeType": "FunctionDefinition",
             "src": "3042:99:11",
             "nodes": [],
             "documentation": {
-              "id": 3051,
+              "id": 3109,
               "nodeType": "StructuredDocumentation",
               "src": "2555:482:11",
               "text": " @dev Returns a tuple of `newDelay` and an effect schedule.\n After the `schedule` passes, the `newDelay` will get into effect immediately for every\n new {defaultAdmin} transfer started with {beginDefaultAdminTransfer}.\n A zero value only in `effectSchedule` indicates no pending delay change.\n NOTE: A zero value only for `newDelay` means that the next {defaultAdminDelay}\n will be zero after the effect schedule."
@@ -1294,23 +1294,23 @@
             "name": "pendingDefaultAdminDelay",
             "nameLocation": "3051:24:11",
             "parameters": {
-              "id": 3052,
+              "id": 3110,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3075:2:11"
             },
             "returnParameters": {
-              "id": 3057,
+              "id": 3115,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3054,
+                  "id": 3112,
                   "mutability": "mutable",
                   "name": "newDelay",
                   "nameLocation": "3108:8:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3058,
+                  "scope": 3116,
                   "src": "3101:15:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1319,7 +1319,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3053,
+                    "id": 3111,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "3101:6:11",
@@ -1332,12 +1332,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 3056,
+                  "id": 3114,
                   "mutability": "mutable",
                   "name": "effectSchedule",
                   "nameLocation": "3125:14:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3058,
+                  "scope": 3116,
                   "src": "3118:21:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1346,7 +1346,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3055,
+                    "id": 3113,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "3118:6:11",
@@ -1360,18 +1360,18 @@
               ],
               "src": "3100:40:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3064,
+            "id": 3122,
             "nodeType": "FunctionDefinition",
             "src": "3484:62:11",
             "nodes": [],
             "documentation": {
-              "id": 3059,
+              "id": 3117,
               "nodeType": "StructuredDocumentation",
               "src": "3147:332:11",
               "text": " @dev Starts a {defaultAdmin} transfer by setting a {pendingDefaultAdmin} scheduled for acceptance\n after the current timestamp plus a {defaultAdminDelay}.\n Requirements:\n - Only can be called by the current {defaultAdmin}.\n Emits a DefaultAdminRoleChangeStarted event."
@@ -1383,17 +1383,17 @@
             "name": "beginDefaultAdminTransfer",
             "nameLocation": "3493:25:11",
             "parameters": {
-              "id": 3062,
+              "id": 3120,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3061,
+                  "id": 3119,
                   "mutability": "mutable",
                   "name": "newAdmin",
                   "nameLocation": "3527:8:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3064,
+                  "scope": 3122,
                   "src": "3519:16:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1402,7 +1402,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 3060,
+                    "id": 3118,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "3519:7:11",
@@ -1418,23 +1418,23 @@
               "src": "3518:18:11"
             },
             "returnParameters": {
-              "id": 3063,
+              "id": 3121,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3545:0:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3068,
+            "id": 3126,
             "nodeType": "FunctionDefinition",
             "src": "3919:47:11",
             "nodes": [],
             "documentation": {
-              "id": 3065,
+              "id": 3123,
               "nodeType": "StructuredDocumentation",
               "src": "3552:362:11",
               "text": " @dev Cancels a {defaultAdmin} transfer previously started with {beginDefaultAdminTransfer}.\n A {pendingDefaultAdmin} not yet accepted can also be cancelled with this function.\n Requirements:\n - Only can be called by the current {defaultAdmin}.\n May emit a DefaultAdminTransferCanceled event."
@@ -1446,29 +1446,29 @@
             "name": "cancelDefaultAdminTransfer",
             "nameLocation": "3928:26:11",
             "parameters": {
-              "id": 3066,
+              "id": 3124,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3954:2:11"
             },
             "returnParameters": {
-              "id": 3067,
+              "id": 3125,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "3965:0:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3072,
+            "id": 3130,
             "nodeType": "FunctionDefinition",
             "src": "4516:47:11",
             "nodes": [],
             "documentation": {
-              "id": 3069,
+              "id": 3127,
               "nodeType": "StructuredDocumentation",
               "src": "3972:539:11",
               "text": " @dev Completes a {defaultAdmin} transfer previously started with {beginDefaultAdminTransfer}.\n After calling the function:\n - `DEFAULT_ADMIN_ROLE` should be granted to the caller.\n - `DEFAULT_ADMIN_ROLE` should be revoked from the previous holder.\n - {pendingDefaultAdmin} should be reset to zero values.\n Requirements:\n - Only can be called by the {pendingDefaultAdmin}'s `newAdmin`.\n - The {pendingDefaultAdmin}'s `acceptSchedule` should've passed."
@@ -1480,29 +1480,29 @@
             "name": "acceptDefaultAdminTransfer",
             "nameLocation": "4525:26:11",
             "parameters": {
-              "id": 3070,
+              "id": 3128,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4551:2:11"
             },
             "returnParameters": {
-              "id": 3071,
+              "id": 3129,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "4562:0:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3078,
+            "id": 3136,
             "nodeType": "FunctionDefinition",
             "src": "5984:59:11",
             "nodes": [],
             "documentation": {
-              "id": 3073,
+              "id": 3131,
               "nodeType": "StructuredDocumentation",
               "src": "4569:1410:11",
               "text": " @dev Initiates a {defaultAdminDelay} update by setting a {pendingDefaultAdminDelay} scheduled for getting\n into effect after the current timestamp plus a {defaultAdminDelay}.\n This function guarantees that any call to {beginDefaultAdminTransfer} done between the timestamp this\n method is called and the {pendingDefaultAdminDelay} effect schedule will use the current {defaultAdminDelay}\n set before calling.\n The {pendingDefaultAdminDelay}'s effect schedule is defined in a way that waiting until the schedule and then\n calling {beginDefaultAdminTransfer} with the new delay will take at least the same as another {defaultAdmin}\n complete transfer (including acceptance).\n The schedule is designed for two scenarios:\n - When the delay is changed for a larger one the schedule is `block.timestamp + newDelay` capped by\n {defaultAdminDelayIncreaseWait}.\n - When the delay is changed for a shorter one, the schedule is `block.timestamp + (current delay - new delay)`.\n A {pendingDefaultAdminDelay} that never got into effect will be canceled in favor of a new scheduled change.\n Requirements:\n - Only can be called by the current {defaultAdmin}.\n Emits a DefaultAdminDelayChangeScheduled event and may emit a DefaultAdminDelayChangeCanceled event."
@@ -1514,17 +1514,17 @@
             "name": "changeDefaultAdminDelay",
             "nameLocation": "5993:23:11",
             "parameters": {
-              "id": 3076,
+              "id": 3134,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3075,
+                  "id": 3133,
                   "mutability": "mutable",
                   "name": "newDelay",
                   "nameLocation": "6024:8:11",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3078,
+                  "scope": 3136,
                   "src": "6017:15:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1533,7 +1533,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3074,
+                    "id": 3132,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "6017:6:11",
@@ -1548,23 +1548,23 @@
               "src": "6016:17:11"
             },
             "returnParameters": {
-              "id": 3077,
+              "id": 3135,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "6042:0:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3082,
+            "id": 3140,
             "nodeType": "FunctionDefinition",
             "src": "6283:46:11",
             "nodes": [],
             "documentation": {
-              "id": 3079,
+              "id": 3137,
               "nodeType": "StructuredDocumentation",
               "src": "6049:229:11",
               "text": " @dev Cancels a scheduled {defaultAdminDelay} change.\n Requirements:\n - Only can be called by the current {defaultAdmin}.\n May emit a DefaultAdminDelayChangeCanceled event."
@@ -1576,29 +1576,29 @@
             "name": "rollbackDefaultAdminDelay",
             "nameLocation": "6292:25:11",
             "parameters": {
-              "id": 3080,
+              "id": 3138,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "6317:2:11"
             },
             "returnParameters": {
-              "id": 3081,
+              "id": 3139,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "6328:0:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 3088,
+            "id": 3146,
             "nodeType": "FunctionDefinition",
             "src": "7292:72:11",
             "nodes": [],
             "documentation": {
-              "id": 3083,
+              "id": 3141,
               "nodeType": "StructuredDocumentation",
               "src": "6335:952:11",
               "text": " @dev Maximum time in seconds for an increase to {defaultAdminDelay} (that is scheduled using {changeDefaultAdminDelay})\n to take effect. Default to 5 days.\n When the {defaultAdminDelay} is scheduled to be increased, it goes into effect after the new delay has passed with\n the purpose of giving enough time for reverting any accidental change (i.e. using milliseconds instead of seconds)\n that may lock the contract. However, to avoid excessive schedules, the wait is capped by this function and it can\n be overrode for a custom {defaultAdminDelay} increase scheduling.\n IMPORTANT: Make sure to add a reasonable amount of time while overriding this value, otherwise,\n there's a risk of setting a high new delay that goes into effect almost immediately without the\n possibility of human intervention in the case of an input error (eg. set milliseconds instead of seconds)."
@@ -1610,23 +1610,23 @@
             "name": "defaultAdminDelayIncreaseWait",
             "nameLocation": "7301:29:11",
             "parameters": {
-              "id": 3084,
+              "id": 3142,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "7330:2:11"
             },
             "returnParameters": {
-              "id": 3087,
+              "id": 3145,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 3086,
+                  "id": 3144,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 3088,
+                  "scope": 3146,
                   "src": "7356:6:11",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -1635,7 +1635,7 @@
                     "typeString": "uint48"
                   },
                   "typeName": {
-                    "id": 3085,
+                    "id": 3143,
                     "name": "uint48",
                     "nodeType": "ElementaryTypeName",
                     "src": "7356:6:11",
@@ -1649,7 +1649,7 @@
               ],
               "src": "7355:8:11"
             },
-            "scope": 3089,
+            "scope": 3147,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1659,16 +1659,16 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 3009,
+              "id": 3067,
               "name": "IAccessControl",
               "nameLocations": [
                 "365:14:11"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 3004,
+              "referencedDeclaration": 3062,
               "src": "365:14:11"
             },
-            "id": 3010,
+            "id": 3068,
             "nodeType": "InheritanceSpecifier",
             "src": "365:14:11"
           }
@@ -1677,19 +1677,19 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 3008,
+          "id": 3066,
           "nodeType": "StructuredDocumentation",
           "src": "183:136:11",
           "text": " @dev External interface of AccessControlDefaultAdminRules declared to support ERC165 detection.\n _Available since v4.9._"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          3089,
-          3004
+          3147,
+          3062
         ],
         "name": "IAccessControlDefaultAdminRules",
         "nameLocation": "330:31:11",
-        "scope": 3090,
+        "scope": 3148,
         "usedErrors": []
       }
     ],

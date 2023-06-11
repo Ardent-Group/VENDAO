@@ -1119,40 +1119,40 @@
     "id": 135,
     "exportedSymbols": {
       "AccessControl": [
-        2243
+        2301
       ],
       "AccessControlDefaultAdminRules": [
-        2931
+        2989
       ],
       "Context": [
-        4682
+        4740
       ],
       "ERC165": [
-        5009
+        5067
       ],
       "IAccessControl": [
-        3004
+        3062
       ],
       "IAccessControlDefaultAdminRules": [
-        3089
+        3147
       ],
       "IERC165": [
-        5021
+        5079
       ],
       "IERC5313": [
-        3099
+        3157
       ],
       "Math": [
-        5887
+        5945
       ],
       "SafeCast": [
-        7428
+        7486
       ],
       "SignedMath": [
-        7533
+        7591
       ],
       "Strings": [
-        4985
+        5043
       ],
       "VenAccessControl": [
         134
@@ -1181,7 +1181,7 @@
         "file": "@openzeppelin/contracts/access/AccessControlDefaultAdminRules.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 135,
-        "sourceUnit": 2932,
+        "sourceUnit": 2990,
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -1490,9 +1490,9 @@
                       "name": "_grantRole",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2474
+                        2532
                       ],
-                      "referencedDeclaration": 2474,
+                      "referencedDeclaration": 2532,
                       "src": "501:10:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_bytes32_$_t_address_$returns$__$",
@@ -1562,9 +1562,9 @@
                       "name": "_setRoleAdmin",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2528
+                        2586
                       ],
-                      "referencedDeclaration": 2528,
+                      "referencedDeclaration": 2586,
                       "src": "537:13:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_bytes32_$_t_bytes32_$returns$__$",
@@ -1611,7 +1611,7 @@
                         "name": "DEFAULT_ADMIN_ROLE",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1955,
+                        "referencedDeclaration": 2013,
                         "src": "611:18:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1634,9 +1634,9 @@
                       "name": "_setRoleAdmin",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2528
+                        2586
                       ],
-                      "referencedDeclaration": 2528,
+                      "referencedDeclaration": 2586,
                       "src": "579:13:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_bytes32_$_t_bytes32_$returns$__$",
@@ -1683,7 +1683,7 @@
                         "name": "DEFAULT_ADMIN_ROLE",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1955,
+                        "referencedDeclaration": 2013,
                         "src": "662:18:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -1706,9 +1706,9 @@
                       "name": "_setRoleAdmin",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        2528
+                        2586
                       ],
-                      "referencedDeclaration": 2528,
+                      "referencedDeclaration": 2586,
                       "src": "640:13:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_bytes32_$_t_bytes32_$returns$__$",
@@ -1781,7 +1781,7 @@
                     "444:30:3"
                   ],
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 2931,
+                  "referencedDeclaration": 2989,
                   "src": "444:30:3"
                 },
                 "nodeType": "ModifierInvocation",
@@ -1875,7 +1875,7 @@
                 "164:30:3"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 2931,
+              "referencedDeclaration": 2989,
               "src": "164:30:3"
             },
             "id": 86,
@@ -1889,14 +1889,14 @@
         "fullyImplemented": true,
         "linearizedBaseContracts": [
           134,
-          2931,
-          2243,
-          5009,
-          5021,
-          3099,
-          3089,
-          3004,
-          4682
+          2989,
+          2301,
+          5067,
+          5079,
+          3157,
+          3147,
+          3062,
+          4740
         ],
         "name": "VenAccessControl",
         "nameLocation": "144:16:3",
