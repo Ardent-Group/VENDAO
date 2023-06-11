@@ -1,4 +1,4 @@
-#### VenDAO contract address: 0x074413Bc30411d909cC26c3f4275419d3852D7d5;
-#### VenAccessControl contract address: 0x308D19Db47C49f046003A544256CDD2A72E3E6CC;
-#### VenAccessTicket contract address: 0x0e504baB99208CC07C586CD20F4d040E6BE8BD86;
-#### VenVoting contract address: 0x733F704144F971fAFbfd1180f64D928FDb7245b4;
+#### VenDAO contract address: 0xf7ca52810F6A3F1ac163760bDCc7cf2928F7F3A9;
+#### VenAccessControl contract address: 0x4307E392Beb3FaC8CcCE07ED3Fe32766435FD3d4;
+#### VenAccessTicket contract address: 0xA7060eA9aC9085E31d06484B7D04d5a2703EEfb3;
+#### VenVoting contract address: 0xdF528E47183fC3f3Acb6BeFDbA58e31e50fB6B0A;

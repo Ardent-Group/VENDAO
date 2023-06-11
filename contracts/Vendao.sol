@@ -27,6 +27,7 @@ contract Vendao is ReentrancyGuard{
     event _changeAcceptance(uint128, uint128);
     event _joinDao(address, uint256);
     event _leaveDao(address);
+    event changeTime(uint128, uint128, uint128, uint128);
 
     /*====================================
     **           STATE VARIBLES
@@ -40,7 +41,9 @@ contract Vendao is ReentrancyGuard{
     uint128 acceptanceFee;
     uint40 public proposalTime;
     bool paused;
-    mapping(address => mapping(uint48 => bool)) nomineesApproved;
+    uint128 public validityTime = 4 weeks;
+    uint128 public investTime = 2 weeks;
+    mapping(address => mapping(uint256 => bool)) nomineesApproved;
     uint256 DAO_FTM_BALANCE;
     mapping(address => mapping(uint256 => uint256)) investorFund;
     mapping(address => uint256) investorsId;
@@ -128,6 +131,16 @@ contract Vendao is ReentrancyGuard{
         emit _changeAcceptance(oldFee, acceptanceFee);
     }
 
+    function setTime(uint128 _validityTime, uint128 _investTime) external {
+        uint128 oldValidityTime = validityTime;
+        uint128 oldInvestTime = investTime;
+        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
+        validityTime = _validityTime;
+        investTime = _investTime;
+
+        emit changeTime(oldValidityTime, validityTime, oldInvestTime, investTime);
+    }
+
     /**
      * @dev . Function responsible for joining Vendao
      */
@@ -182,7 +195,7 @@ contract Vendao is ReentrancyGuard{
         uint256 _funding = _fundingRequest * 10**8 / uint256(_price);
         projectProposals.push(Project({
             urlToStorage: _urlToStore,
-            proposalValidity: uint40(block.timestamp + 4 weeks),
+            proposalValidity: uint40(block.timestamp + validityTime),
             proposalCreator: sender,
             proposalId: index,
             approvalCount: 0,
@@ -231,7 +244,7 @@ contract Vendao is ReentrancyGuard{
                 proposalsToInvest.push(Invest({
                     url: _proposal.urlToStorage,
                     proposalCreator: _proposal.proposalCreator,
-                    investPeriod: uint40(block.timestamp + 2 weeks),
+                    investPeriod: uint40(block.timestamp + investTime),
                     investId: index,
                     funded: false,
                     fundingRequest: _proposal.fundingRequest,
