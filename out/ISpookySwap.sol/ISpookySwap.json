@@ -95,10 +95,10 @@
     "swapExactTokensForETH(uint256,uint256,address[],address,uint256)": "18cbafe5",
     "swapExactTokensForTokens(uint256,uint256,address[],address,uint256)": "38ed1739"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"WETH\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"swapExactTokensForETH\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"swapExactTokensForTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ISpookySwap.sol\":\"ISpookySwap\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/ISpookySwap.sol\":{\"keccak256\":\"0x7be31cb3b93872dbacb4e431525336077be70d384715091cd209f865d69eb655\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f6a114124344debf0ea7bb23aa1c3c3afa9ebce35b6b5c10433db80d9877617b\",\"dweb:/ipfs/QmZ27fmsnoUaY6dgLmt4tyWNQxSBoYs6kn1YuwRZ1CkbKm\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"WETH\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"swapExactTokensForETH\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_amountOutMin\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"swapExactTokensForTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ISpookySwap.sol\":\"ISpookySwap\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/ISpookySwap.sol\":{\"keccak256\":\"0xd61d741db4ebb264fa009cbd635e1299b85bde1a70116caf803cfba27a0ce54e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://180e8c760a5d9660954e8cc5cee1768d1d40120e0b02fccfedef15353939f6a4\",\"dweb:/ipfs/QmfWzLREm9b3yetsvz4qmuNUaiHZxh2cJDYcpJ8wxGM53R\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.20+commit.a1b79de6"
+      "version": "0.8.18+commit.87f61d96"
     },
     "language": "Solidity",
     "output": {
@@ -214,10 +214,10 @@
     },
     "sources": {
       "contracts/ISpookySwap.sol": {
-        "keccak256": "0x7be31cb3b93872dbacb4e431525336077be70d384715091cd209f865d69eb655",
+        "keccak256": "0xd61d741db4ebb264fa009cbd635e1299b85bde1a70116caf803cfba27a0ce54e",
         "urls": [
-          "bzz-raw://f6a114124344debf0ea7bb23aa1c3c3afa9ebce35b6b5c10433db80d9877617b",
-          "dweb:/ipfs/QmZ27fmsnoUaY6dgLmt4tyWNQxSBoYs6kn1YuwRZ1CkbKm"
+          "bzz-raw://180e8c760a5d9660954e8cc5cee1768d1d40120e0b02fccfedef15353939f6a4",
+          "dweb:/ipfs/QmfWzLREm9b3yetsvz4qmuNUaiHZxh2cJDYcpJ8wxGM53R"
         ],
         "license": "MIT"
       }
@@ -243,7 +243,7 @@
         "literals": [
           "solidity",
           "0.8",
-          ".20"
+          ".18"
         ]
       },
       {
@@ -671,8 +671,7 @@
         "name": "ISpookySwap",
         "nameLocation": "67:11:0",
         "scope": 36,
-        "usedErrors": [],
-        "usedEvents": []
+        "usedErrors": []
       }
     ],
     "license": "MIT"

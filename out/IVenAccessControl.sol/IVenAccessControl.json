@@ -90,10 +90,10 @@
     "owner()": "8da5cb5b",
     "revokeRole(bytes32,address)": "d547741f"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/IVenAccessControl.sol\":\"IVenAccessControl\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/IVenAccessControl.sol\":{\"keccak256\":\"0xe56046258716950a051ac699b76a6509f40af59f16189096efd8ce69afa17689\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2d9d41916c9d72e871a41ae96bdd77b5e23d2259628642cfef2b531c6ca5d79c\",\"dweb:/ipfs/QmfXcXc7doKb4cXtVvw4Z88fa8mVYG12rLCcxmzGCUHSs7\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.18+commit.87f61d96\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"grantRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"hasRole\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"role\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"revokeRole\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/IVenAccessControl.sol\":\"IVenAccessControl\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/=node_modules/@chainlink/\",\":@eth-optimism/=node_modules/@eth-optimism/\",\":@openzeppelin/=node_modules/@openzeppelin/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":hardhat/=node_modules/hardhat/\"]},\"sources\":{\"contracts/IVenAccessControl.sol\":{\"keccak256\":\"0x9e8c0a92fd0da7919c811771b29bf6cf7ff9ba8b9f980a34a99e5e4059f1410a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e8b145eb613a7cd0c0e39dc8d870f83cb68eddee24aaece3682f4b6d71eb1e3f\",\"dweb:/ipfs/QmPKfoMBw9L14YZhY5ESTpWYM4wUgeFZh2etKEHYq4a3xz\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
-      "version": "0.8.20+commit.a1b79de6"
+      "version": "0.8.18+commit.87f61d96"
     },
     "language": "Solidity",
     "output": {
@@ -203,10 +203,10 @@
     },
     "sources": {
       "contracts/IVenAccessControl.sol": {
-        "keccak256": "0xe56046258716950a051ac699b76a6509f40af59f16189096efd8ce69afa17689",
+        "keccak256": "0x9e8c0a92fd0da7919c811771b29bf6cf7ff9ba8b9f980a34a99e5e4059f1410a",
         "urls": [
-          "bzz-raw://2d9d41916c9d72e871a41ae96bdd77b5e23d2259628642cfef2b531c6ca5d79c",
-          "dweb:/ipfs/QmfXcXc7doKb4cXtVvw4Z88fa8mVYG12rLCcxmzGCUHSs7"
+          "bzz-raw://e8b145eb613a7cd0c0e39dc8d870f83cb68eddee24aaece3682f4b6d71eb1e3f",
+          "dweb:/ipfs/QmPKfoMBw9L14YZhY5ESTpWYM4wUgeFZh2etKEHYq4a3xz"
         ],
         "license": "MIT"
       }
@@ -232,7 +232,7 @@
         "literals": [
           "solidity",
           "0.8",
-          ".20"
+          ".18"
         ]
       },
       {
@@ -590,8 +590,7 @@
         "name": "IVenAccessControl",
         "nameLocation": "67:17:1",
         "scope": 67,
-        "usedErrors": [],
-        "usedEvents": []
+        "usedErrors": []
       }
     ],
     "license": "MIT"
