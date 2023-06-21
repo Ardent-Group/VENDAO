@@ -46,7 +46,6 @@ contract Vendao is ReentrancyGuard{
     mapping(address => mapping(uint256 => bool)) nomineesApproved;
     uint256 DAO_FTM_BALANCE;
     mapping(address => mapping(uint256 => uint256)) investorFund;
-    mapping(address => uint256) investorsId;
     Project[] public projectProposals; // List of project proposals
     Invest[] public proposalsToInvest; // List of proposals to invest in
     FundedProject[] public projectFunded; // List of project funded
@@ -142,7 +141,6 @@ contract Vendao is ReentrancyGuard{
         DAO_FTM_BALANCE += _amount;
         VenAccessControl.grantRole(INVESTOR, sender);
         _newTokenId = VenAccessTicket.daoPassTicket(sender);
-        investorsId[sender] = _newTokenId;
 
         emit _joinDao(sender, _newTokenId);
     }
