@@ -7,6 +7,8 @@ const FANTOM_RPC_URL = process.env.FANTOM_RPC_URL;
 const PRIVATE_KEYS = process.env.PRIVATE_KEY;
 const API_KEY = process.env.API_KEY
 
+
+
 module.exports = {
   solidity: "0.8.18",
   networks: {

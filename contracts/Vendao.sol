@@ -119,26 +119,17 @@ contract Vendao is ReentrancyGuard{
         delete owner;
     }
 
-    /**
-     * @dev     . function responsible to set acceptance fee
-     * @param   _acceptance  . New acceptance fee to be set
-     */
-    function setAcceptanceFee(uint128 _acceptance) external {
-        uint128 oldFee = acceptanceFee;
-        if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
-        acceptanceFee = _acceptance;
-
-        emit _changeAcceptance(oldFee, acceptanceFee);
-    }
-
-    function setTime(uint128 _validityTime, uint128 _investTime) external {
+    function setVar(uint128 _validityTime, uint128 _investTime, uint128 _acceptance) external {
         uint128 oldValidityTime = validityTime;
         uint128 oldInvestTime = investTime;
+        uint128 oldFee = acceptanceFee;
         if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
         validityTime = _validityTime;
         investTime = _investTime;
+        acceptanceFee = _acceptance;
 
         emit changeTime(oldValidityTime, validityTime, oldInvestTime, investTime);
+        emit _changeAcceptance(oldFee, acceptanceFee);
     }
 
     /**
@@ -156,23 +147,23 @@ contract Vendao is ReentrancyGuard{
         emit _joinDao(sender, _newTokenId);
     }
 
-    /**
-     * @notice  . When an investor decides to leave the DAO, access ticket is burnt
-     * and only 50% of the amount used to join the DAO is refunded.
-     * @dev     . Function responsible for leaving the DAO
-     */
-    function leaveDAO() external payable nonReentrant {
-        address sender = msg.sender;
-        require(VenAccessControl.hasRole(INVESTOR, sender), "VENDAO: Not an investor");
-        VenAccessControl.revokeRole(INVESTOR, sender);
-        VenAccessTicket.burnPassTicket(investorsId[sender]);
+    // /**
+    //  * @notice  . When an investor decides to leave the DAO, access ticket is burnt
+    //  * and only 50% of the amount used to join the DAO is refunded.
+    //  * @dev     . Function responsible for leaving the DAO
+    //  */
+    // function leaveDAO() external payable nonReentrant {
+    //     address sender = msg.sender;
+    //     require(VenAccessControl.hasRole(INVESTOR, sender), "VENDAO: Not an investor");
+    //     VenAccessControl.revokeRole(INVESTOR, sender);
+    //     VenAccessTicket.burnPassTicket(investorsId[sender]);
         
-        (bool success, ) = payable(sender).call{value: (acceptanceFee / 2)}("");
+    //     (bool success, ) = payable(sender).call{value: (acceptanceFee / 2)}("");
 
-        require(success, "Transaction Unsuccessful");
+    //     require(success, "Transaction Unsuccessful");
 
-        emit _leaveDao(sender);
-    }
+    //     emit _leaveDao(sender);
+    // }
     // ================ Project Proposal Section ====================
 
     /**
@@ -195,7 +186,7 @@ contract Vendao is ReentrancyGuard{
         uint256 _funding = _fundingRequest * 10**8 / uint256(_price);
         projectProposals.push(Project({
             urlToStorage: _urlToStore,
-            proposalValidity: uint40(block.timestamp + validityTime),
+            proposalValidity: uint40(timestamp + validityTime),
             proposalCreator: sender,
             proposalId: index,
             approvalCount: 0,
@@ -208,6 +199,31 @@ contract Vendao is ReentrancyGuard{
         proposalTime = timestamp + 1 weeks;
 
         
+    }
+
+    function reProposeProject(uint48 _proposalId, string memory _urlToStore, uint256 _fundingRequest, uint256 _equityOffering) external nonReentrant {
+        address sender = msg.sender; // variable caching
+        Project storage _proposal = projectProposals[_proposalId];
+        IERC20 _contractAddress = _proposal.tokenCA;
+        require(_proposal.status == Status.pending && sender == _proposal.proposalCreator, "Modification imposible");
+        (,int _price,,,) = FTM_PRICE_FEED.latestRoundData();
+        uint256 _funding = _fundingRequest * 10**8 / uint256(_price);
+
+        _proposal.urlToStorage = _urlToStore;
+        _proposal.proposalValidity = uint40(block.timestamp + validityTime);
+        _proposal.approvalCount = 0;
+        _proposal.fundingRequest = _funding;
+
+        if(_equityOffering > _proposal.equityOffering) {
+            uint256 toBalance = (_equityOffering - _proposal.equityOffering);
+            require(_contractAddress.transferFrom(sender, address(this), toBalance), "VENDAO: Transaction unsuccessful");
+            require(_contractAddress.balanceOf(address(this)) >= _equityOffering, "VENDAO: zero value was sent");
+        } else {
+            uint256 _balance = (_proposal.equityOffering - _equityOffering);
+            _proposal.equityOffering = _equityOffering;
+            require(_contractAddress.transfer(sender, _balance), "VENDAO: Transaction unsuccessful");
+        }
+        _proposal.equityOffering = _equityOffering;
     }
 
     /**
