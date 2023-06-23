@@ -40,36 +40,36 @@ async function main() {
   console.log(`VENDAO successfully initiated access control`);
   
 
-  // console.log(`Verifying VENDAO contract....`);
-  // await run("verify: verify", {
-  //   address: vendao.address,
-  //   constructorArguments: []
-  // });
+  console.log(`Verifying VENDAO contract....`);
+  await run("verify: verify", {
+    address: vendao.address,
+    constructorArguments: []
+  });
 
-  // console.log(`Verifying VenAccessControl contract....`);
-  // await run("verify:verify", {
-  //   address: venAccessControl.address,
-  //   constructorArguments: [
-  //     vendao.address,
-  //     _admin
-  //   ]
-  // });
+  console.log(`Verifying VenAccessControl contract....`);
+  await run("verify:verify", {
+    address: venAccessControl.address,
+    constructorArguments: [
+      vendao.address,
+      _admin
+    ]
+  });
 
-  // console.log(`Verifying VenAccessTicket contract....`);
-  // await run("verify:verify", {
-  //   address: venAccessTicket.address,
-  //   constructorArguments: [
-  //     venAccessControl.address
-  //   ]
-  // });
+  console.log(`Verifying VenAccessTicket contract....`);
+  await run("verify:verify", {
+    address: venAccessTicket.address,
+    constructorArguments: [
+      venAccessControl.address
+    ]
+  });
 
-  // console.log(`Verifying VenVoting contract....`);
-  // await run("verify:verify", {
-  //   address: venVoting.address,
-  //   constructorArguments: [
-  //     venAccessControl.address
-  //   ]
-  // });
+  console.log(`Verifying VenVoting contract....`);
+  await run("verify:verify", {
+    address: venVoting.address,
+    constructorArguments: [
+      venAccessControl.address
+    ]
+  });
   
   
 }

@@ -2,6 +2,7 @@ require("dotenv").config({path: ".env"});
 import "hardhat-tracer";
 import "@nomiclabs/hardhat-ethers";
 import "@nomicfoundation/hardhat-verify";
+import "hardhat-contract-sizer";
 
 const FANTOM_RPC_URL = process.env.FANTOM_RPC_URL;
 const PRIVATE_KEYS = process.env.PRIVATE_KEY;

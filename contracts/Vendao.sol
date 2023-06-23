@@ -23,18 +23,15 @@ contract Vendao is ReentrancyGuard{
     /**===================================
      *            EVENTS
     =====================================*/
-    event changeValidityTime(uint40, uint40);
     event _changeAcceptance(uint128, uint128);
     event _joinDao(address, uint256);
-    event _leaveDao(address);
-    event changeTime(uint128, uint128, uint128, uint128);
 
     /*====================================
     **           STATE VARIBLES
     =====================================*/
     address owner;
 
-    IVenAccessTicket public VenAccessTicket;
+    IVenAccessTicket VenAccessTicket;
     IVenAccessControl public VenAccessControl;
     ISpookySwap public spookySwap;
     AggregatorV3Interface public FTM_PRICE_FEED;
@@ -44,11 +41,18 @@ contract Vendao is ReentrancyGuard{
     uint128 public validityTime = 4 weeks;
     uint128 public investTime = 2 weeks;
     mapping(address => mapping(uint256 => bool)) nomineesApproved;
-    uint256 DAO_FTM_BALANCE;
-    mapping(address => mapping(uint256 => uint256)) investorFund;
+    uint256 public DAO_FTM_BALANCE;
+    mapping(address => InvestorDetails) public investorDetails;
     Project[] public projectProposals; // List of project proposals
     Invest[] public proposalsToInvest; // List of proposals to invest in
     FundedProject[] public projectFunded; // List of project funded
+
+    struct InvestorDetails {
+        mapping(uint256 => uint256) investorFund;
+        uint128 investmentCount;
+        uint128 shareCount;
+        uint256 amountSpent;
+    }
 
 
     struct Project {
@@ -81,7 +85,7 @@ contract Vendao is ReentrancyGuard{
         uint40 investPeriod;
         uint48 investId;
         bool funded;
-        uint256 fundingRequest; // Request in dollar
+        uint256 fundingRequest; // Request in ftm
         uint256 equityOffering; // token offering for the funding
         uint256 amountFunded;
         IERC20 _tokenCA;
@@ -118,16 +122,10 @@ contract Vendao is ReentrancyGuard{
         delete owner;
     }
 
-    function setVar(uint128 _validityTime, uint128 _investTime, uint128 _acceptance) external {
-        uint128 oldValidityTime = validityTime;
-        uint128 oldInvestTime = investTime;
+    function setVar(uint128 _acceptance) external {
         uint128 oldFee = acceptanceFee;
         if(msg.sender != VenAccessControl.owner()) revert notAdmin("VENDAO: Only admin can alter change");
-        validityTime = _validityTime;
-        investTime = _investTime;
         acceptanceFee = _acceptance;
-
-        emit changeTime(oldValidityTime, validityTime, oldInvestTime, investTime);
         emit _changeAcceptance(oldFee, acceptanceFee);
     }
 
@@ -144,24 +142,7 @@ contract Vendao is ReentrancyGuard{
 
         emit _joinDao(sender, _newTokenId);
     }
-
-    // /**
-    //  * @notice  . When an investor decides to leave the DAO, access ticket is burnt
-    //  * and only 50% of the amount used to join the DAO is refunded.
-    //  * @dev     . Function responsible for leaving the DAO
-    //  */
-    // function leaveDAO() external payable nonReentrant {
-    //     address sender = msg.sender;
-    //     require(VenAccessControl.hasRole(INVESTOR, sender), "VENDAO: Not an investor");
-    //     VenAccessControl.revokeRole(INVESTOR, sender);
-    //     VenAccessTicket.burnPassTicket(investorsId[sender]);
-        
-    //     (bool success, ) = payable(sender).call{value: (acceptanceFee / 2)}("");
-
-    //     require(success, "Transaction Unsuccessful");
-
-    //     emit _leaveDao(sender);
-    // }
+    
     // ================ Project Proposal Section ====================
 
     /**
@@ -208,7 +189,7 @@ contract Vendao is ReentrancyGuard{
         uint256 _funding = _fundingRequest * 10**8 / uint256(_price);
 
         _proposal.urlToStorage = _urlToStore;
-        _proposal.proposalValidity = uint40(block.timestamp + validityTime);
+        _proposal.proposalValidity = uint40(block.timestamp + 4 weeks);
         _proposal.approvalCount = 0;
         _proposal.fundingRequest = _funding;
 
@@ -251,14 +232,14 @@ contract Vendao is ReentrancyGuard{
 
         }else {
             uint8 _count = projectProposals[_proposalId].approvalCount;
-            investorFund[sender][_proposalId] += incentiveCalc(_proposal.fundingRequest);
+            investorDetails[sender].investorFund[_proposalId] = incentiveCalc(_proposal.fundingRequest);
             if(_count > 3) {
                 projectProposals[_proposalId].status = Status.approve;
                 uint48 index = uint48(proposalsToInvest.length);
                 proposalsToInvest.push(Invest({
                     url: _proposal.urlToStorage,
                     proposalCreator: _proposal.proposalCreator,
-                    investPeriod: uint40(block.timestamp + investTime),
+                    investPeriod: uint40(block.timestamp + 2 weeks),
                     investId: index,
                     funded: false,
                     fundingRequest: _proposal.fundingRequest,
@@ -278,6 +259,7 @@ contract Vendao is ReentrancyGuard{
     function invest(uint48 _proposalId) external payable nonReentrant {
         if(!VenAccessControl.hasRole(INVESTOR, msg.sender)) revert notAdmin("Only Investors");
         uint256 _amount = msg.value; // variable caching
+        address sender = msg.sender; // variable cat
         Invest memory _invest = proposalsToInvest[_proposalId];
         if(block.timestamp >= _invest.investPeriod) {
             if(_invest.amountFunded > _invest.fundingRequest) {
@@ -297,7 +279,14 @@ contract Vendao is ReentrancyGuard{
                 require((_invest._tokenCA).transfer(_invest.proposalCreator, _invest.equityOffering), "Transfer unsuccessful");
             }
         }else {
-            investorFund[msg.sender][_proposalId] += _amount;
+            InvestorDetails storage _investDetails = investorDetails[sender];
+            if(_investDetails.investorFund[_proposalId] == 0) {
+                _investDetails.investmentCount += 1;
+            }
+            _investDetails.investorFund[_proposalId] += _amount;
+            (,int _price,,,) = FTM_PRICE_FEED.latestRoundData();
+            uint256 _amountSpent = (_amount * uint256(_price)) / 10**8;
+            _investDetails.amountSpent += _amountSpent;
             proposalsToInvest[_proposalId].amountFunded += _amount;
         }     
     }
@@ -330,14 +319,15 @@ contract Vendao is ReentrancyGuard{
 
             require(success, "Transaction unsuccessful");
         }else {
-            uint256 amountInvested = investorFund[sender][uint48(_fundedProject.investorsTag)];
+            uint256 amountInvested = investorDetails[sender].investorFund[(uint48(_fundedProject.investorsTag))];
             (uint256 share,, uint256 amountLeft) = _investorClaimCalc(
                 _fundedProject.fundingRequest,
                 _fundedProject.amountFunded,
                 _fundedProject.equityOffering,
                 amountInvested
             );
-            investorFund[sender][uint48(_fundedProject.investorsTag)] = 0;
+            
+            investorDetails[sender].investorFund[(uint48(_fundedProject.investorsTag))] = 0;
             require((_fundedProject._tokenCA).transfer(sender, share), "Transfer unsuccessful");
             (bool success, ) = payable(sender).call{value: amountLeft}("");
 
@@ -413,14 +403,9 @@ contract Vendao is ReentrancyGuard{
 
     // ======================= VIEW FUNCTIONS =======================
 
-    function ftmBalance() external view returns(uint256) {
-        return DAO_FTM_BALANCE;
-    }
-
     function tokenBalance(IERC20 _tokenAddress) external view returns(uint256) {
         return _tokenAddress.balanceOf(address(this));
     }
-
 
     // ===================== INTERNAL FUNCTIONS ====================
 
@@ -450,5 +435,4 @@ contract Vendao is ReentrancyGuard{
     }
 
     receive() external payable {}
-    fallback() external payable {}
 }
