@@ -405,6 +405,12 @@ contract Vendao is ReentrancyGuard{
         return _tokenAddress.balanceOf(address(this));
     }
 
+    function getLength() external view returns(uint256 getProductLength, uint256 getInvestLength, uint256 getFundedLength) {
+        getProductLength = projectProposals.length;
+        getInvestLength = proposalsToInvest.length;
+        getFundedLength = projectFunded.length;
+    }
+
     // ===================== INTERNAL FUNCTIONS ====================
 
     function _daoFundingCalc(uint256 _fundingRequest) internal view returns(uint256) {
