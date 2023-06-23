@@ -38,8 +38,6 @@ contract Vendao is ReentrancyGuard{
     uint128 acceptanceFee;
     uint40 public proposalTime;
     bool paused;
-    uint128 public validityTime = 4 weeks;
-    uint128 public investTime = 2 weeks;
     mapping(address => mapping(uint256 => bool)) nomineesApproved;
     uint256 public DAO_FTM_BALANCE;
     mapping(address => InvestorDetails) public investorDetails;
@@ -142,7 +140,7 @@ contract Vendao is ReentrancyGuard{
 
         emit _joinDao(sender, _newTokenId);
     }
-    
+
     // ================ Project Proposal Section ====================
 
     /**
@@ -165,7 +163,7 @@ contract Vendao is ReentrancyGuard{
         uint256 _funding = _fundingRequest * 10**8 / uint256(_price);
         projectProposals.push(Project({
             urlToStorage: _urlToStore,
-            proposalValidity: uint40(timestamp + validityTime),
+            proposalValidity: uint40(timestamp + 4 weeks),
             proposalCreator: sender,
             proposalId: index,
             approvalCount: 0,
