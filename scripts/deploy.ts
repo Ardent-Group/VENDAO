@@ -1,7 +1,7 @@
 import { ethers, run } from "hardhat";
 
 async function main() {
-  const _admin = "0x5DE9d9C1dC9b407a9873E2F428c54b74c325b82b";
+  const _admin = "0xF15EDd201f8F8869F29adCB0476D8cc3562470bc";
   const spookyDEX = "0xa6AD18C2aC47803E193F75c3677b14BF19B94883";
   // Deploy vendao contract
   const Vendao = await ethers.getContractFactory("Vendao");

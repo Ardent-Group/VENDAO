@@ -71,6 +71,10 @@ contract VenVoting {
         voteLimit[sender] += 1;
     }
 
+    function contestantLength() external view returns(uint256){
+        return contestant.length;
+    }
+
     function top5Nominees() external view returns(Contestant[] memory) {
         Contestant[] memory _contestant = contestant;
         Contestant[] memory nominees = new Contestant[](5);
