@@ -3,6 +3,7 @@ import { ethers, run } from "hardhat";
 async function main() {
   const _admin = "0xF15EDd201f8F8869F29adCB0476D8cc3562470bc";
   const spookyDEX = "0xa6AD18C2aC47803E193F75c3677b14BF19B94883";
+  const ftm_price_feed = "0xe04676B9A9A2973BCb0D1478b5E1E9098BBB7f3D";
   // Deploy vendao contract
   const Vendao = await ethers.getContractFactory("Vendao");
   const vendao = await Vendao.deploy();
@@ -36,7 +37,7 @@ async function main() {
   console.log(`VenVoting is deployed to ${venVoting.address}`);
 
   // Initiate access control for VENDAO
-  await vendao.init(venAccessTicket.address, venAccessControl.address, spookyDEX);
+  await vendao.init(venAccessTicket.address, venAccessControl.address, spookyDEX, ftm_price_feed);
   console.log(`VENDAO successfully initiated access control`);
   
 

@@ -111,11 +111,12 @@ contract Vendao is ReentrancyGuard{
         owner = msg.sender;
     }
 
-    function init(IVenAccessTicket _accessTicket, IVenAccessControl _accessControl, ISpookySwap _spookyswap) external {
+    function init(IVenAccessTicket _accessTicket, IVenAccessControl _accessControl, ISpookySwap _spookyswap, AggregatorV3Interface _ftm_price_feed) external {
         require(msg.sender == owner, "Not an owner");
         VenAccessTicket = _accessTicket;
         VenAccessControl = _accessControl;
         spookySwap = _spookyswap;
+        FTM_PRICE_FEED = _ftm_price_feed;
 
         delete owner;
     }
