@@ -7,6 +7,7 @@ import "hardhat-contract-sizer";
 const FANTOM_RPC_URL = process.env.FANTOM_RPC_URL;
 const PRIVATE_KEYS = process.env.PRIVATE_KEY;
 const API_KEY = process.env.API_KEY
+const FANTOM_MAINNET_URL = process.env.FANTOM_MAINNET_URL;
 
 
 
@@ -16,8 +17,12 @@ module.exports = {
     forking: {
       url: FANTOM_RPC_URL
     },
-    fantom: {
+    fantom_testnet: {
       url: FANTOM_RPC_URL,
+      accounts: [PRIVATE_KEYS]
+    },
+    fantom: {
+      url: FANTOM_MAINNET_URL,
       accounts: [PRIVATE_KEYS]
     }
   },
